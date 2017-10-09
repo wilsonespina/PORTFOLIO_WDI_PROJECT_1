@@ -41,28 +41,48 @@ $(() => {
       const $currentPosition = $('#grid li:nth-child(' + n + ')');
       console.log($currentPosition);
 
+      // if (n > 0 && n < 25) {
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
+            // if (n > 0 && n < 25) {
             (n -= 1);
-            console.log(n);
+            // } else {
+            //   return;
+            // }
+console.log(n);
             break;
           case 38: // up
+            // if (n > 0 && n < 25) {
             (n -= 5);
-            console.log(n);
+            // } else {
+            //   return;
+            // }
+console.log(n);
             break;
           case 39: // right
+            // if (n > 0 && n < 25) {
             (n += 1);
-            console.log(n);
+            // } else {
+            //   return;
+            // }
+console.log(n);
             break;
           case 40: // down
-            (n += 5);
-            console.log(n);
+            // if (n > 0 && n < 25) {
+            (n += 1);
+            // } else {
+            //   return;
+console.log(n);
             break;
+
           default: return; // exit this handler for other keys
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
 
+      // }  else  {
+      //   return;
+      // }
         //if statement using key binding to update img position
 
 
