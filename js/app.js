@@ -1,6 +1,6 @@
 $(() => {
 
-console.log('loaded');
+  console.log('loaded');
 
   //GRID NAVIGATION
 
@@ -14,27 +14,72 @@ console.log('loaded');
   const $li = $('.li');
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />'); //does it need te be .digger?
   const $playButton = $('#play-button');
+  const gridWidth = 5; //UPDATE WITH BIGGER GRID
+let i = 10;
+  const $currentPosition = $('#grid li:nth-child(3)');
+
+console.log($currentPosition);
 
 
+  init();
+
+  function init (){
 //start potioning
-  startPosition();
-  function startPosition(){
-    const startValue = Math.floor((Math.random() * 25));
-    const position = (grid[startValue]);
-console.log(position);
-
     $playButton.on('click', function() {
-      ('#b0').append(digger);
-
+      $('#b0').append(digger);
     });
+    moveDigger();
 
 
+
+
+
+// move digger
+    function moveDigger(){
+      $(document).keydown(function(e) {
+        switch(e.which) {
+          case 37: // left
+            break;
+          case 38: // up
+            break;
+          case 39: // right
+            break;
+          case 40: // down
+            break;
+          default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+        //if statement using key binding to update img position
+
+        if (e.which === 37) {
+console.log('left');
+
+
+
+        } else if (e.which === 38) {
+console.log('up');
+        } else if (e.which === 39) {
+console.log('right');
+        } else {
+console.log('down');
+        }
+      });
+
+    }
+
+
+
+    //SPAWN RANDOM OBJECT
+
+
+    objectPosition();
+    function objectPosition(){
+      const startValue = Math.floor((Math.random() * 25));
+      const randomPosition = (grid[startValue]);
+      console.log(randomPosition);
+      //add if functions to stop spawing in blocks
+    }
 
   }
-
-
-
-//SPAWN RANDOM OBJECT
-
 
 });
