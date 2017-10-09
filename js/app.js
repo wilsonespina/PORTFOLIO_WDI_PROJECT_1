@@ -15,10 +15,10 @@ $(() => {
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />'); //does it need te be .digger?
   const $playButton = $('#play-button');
   const gridWidth = 5; //UPDATE WITH BIGGER GRID
-let i = 10;
-  const $currentPosition = $('#grid li:nth-child(3)');
 
-console.log($currentPosition);
+  const startSquare = 1; //UPDATE with new game?
+  const $startPosition = $('#grid li:nth-child(' + startSquare + ')');
+console.log($startPosition);
 
 
   init();
@@ -26,7 +26,8 @@ console.log($currentPosition);
   function init (){
 //start potioning
     $playButton.on('click', function() {
-      $('#b0').append(digger);
+      $startPosition.append(digger);
+
     });
     moveDigger();
 
@@ -34,7 +35,7 @@ console.log($currentPosition);
 
 
 
-// move digger
+// MOVE DIGGER
     function moveDigger(){
       $(document).keydown(function(e) {
         switch(e.which) {
@@ -64,7 +65,6 @@ console.log('right');
 console.log('down');
         }
       });
-
     }
 
 
