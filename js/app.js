@@ -41,49 +41,87 @@ $(() => {
       const $currentPosition = $('#grid li:nth-child(' + n + ')');
       console.log($currentPosition);
 
-      // if (n > 0 && n < 25) {
+
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
-            // if (n > 0 && n < 25) {
-            (n -= 1);
-            // } else {
-            //   return;
-            // }
+//1st row
+            if (n >= 2 && n <= 5) {
+              (n -= 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//2nd row
+            } else if (n >= 7 && n <= 10) {
+              (n -= 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//3rd row
+            } else if (n >= 12 && n <= 15) {
+              (n -= 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//4th row
+            } else if (n >= 17 && n <= 20) {
+              (n -= 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//5th row
+            } else if (n >= 22 && n <= 25) {
+              (n -= 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+            } else {
+              return;
+            }
 console.log(n);
             break;
           case 38: // up
-            // if (n > 0 && n < 25) {
-            (n -= 5);
-            // } else {
-            //   return;
-            // }
-console.log(n);
+            if (n >= 6 && n <= 25) {
+              (n -= 5);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+            } else {
+              return;
+            }
+            console.log(n);
             break;
           case 39: // right
-            // if (n > 0 && n < 25) {
-            (n += 1);
-            // } else {
-            //   return;
-            // }
-console.log(n);
+//1st row
+            if (n >= 1 && n <= 4) {
+              (n += 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//2nd row
+            } else if (n >= 6 && n <= 9) {
+              (n += 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//3rd row
+            } else if (n >= 11 && n <= 14) {
+              (n += 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//3rd row
+            } else if (n >= 16 && n <= 19) {
+              (n += 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+//3rd row
+            } else if (n >= 21 && n <= 24) {
+              (n += 1);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+            } else {
+              return;
+            }
+            console.log(n);
             break;
           case 40: // down
-            // if (n > 0 && n < 25) {
-            (n += 1);
-            // } else {
-            //   return;
-console.log(n);
+            if (n >= 1 && n <= 20) {
+              (n += 5);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+            } else {
+              return;
+            }
+            console.log(n);
             break;
 
           default: return; // exit this handler for other keys
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
 
-      // }  else  {
-      //   return;
-      // }
+
         //if statement using key binding to update img position
+
 
 
 
