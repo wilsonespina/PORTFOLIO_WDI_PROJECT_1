@@ -44,18 +44,20 @@ $(() => {
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
-            n--;
+            (n -= 1);
             console.log(n);
             break;
           case 38: // up
-            (n - 5);
+            (n -= 5);
             console.log(n);
             break;
           case 39: // right
-            n--;
+            (n += 1);
             console.log(n);
             break;
           case 40: // down
+            (n += 5);
+            console.log(n);
             break;
           default: return; // exit this handler for other keys
         }
