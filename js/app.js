@@ -15,7 +15,7 @@ $(() => {
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />'); //does it need te be .digger?
   const $playButton = $('#play-button');
   const gridWidth = 5; //UPDATE WITH BIGGER GRID
-  const startSquare = 10; //UPDATE with new game?
+  const startSquare = 8; //UPDATE with new game?
   const $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
 
 
@@ -29,9 +29,14 @@ $(() => {
     $playButton.on('click', function() {
       $beginningSquare.append(digger);
     });
+    walls();
     moveDigger();
 
+    //CREATE OBSTACLES
+    function walls (){
 
+
+    }
 
 
 
@@ -40,7 +45,6 @@ $(() => {
       let n = startSquare;
       const $currentPosition = $('#grid li:nth-child(' + n + ')');
       console.log($currentPosition);
-
 
       $(document).keydown(function(e) {
         switch(e.which) {
@@ -121,47 +125,24 @@ console.log(n);
 
 
         //if statement using key binding to update img position
-
-
-
-
-
-        // $li.on('keydown', function(e) {
-
-        // if (e.which === 37) {
-        //   console.log('left');
-        //   n--;
-        //   console.log(n);
-        //
-        //   $currentPosition.append(digger);
-        //
-        //
-        // } else if (e.which === 38) {
-        //   console.log('up');
-        // } else if (e.which === 39) {
-        //   console.log('right');
-        // } else {
-        //   console.log('down');
-        // }
       });
-
-
-
     }
+
+
 
 
 
     //SPAWN RANDOM OBJECT
+    function spawn(){
 
-
-    objectPosition();
-    function objectPosition(){
-      const startValue = Math.floor((Math.random() * 25));
-      const randomPosition = (grid[startValue]);
-      console.log(randomPosition);
+      objectPosition();
+      function objectPosition(){
+        const startValue = Math.floor((Math.random() * 25));
+        const randomPosition = (grid[startValue]);
+console.log(randomPosition);
       //add if functions to stop spawing in blocks
+      }
+
     }
-
   }
-
 });
