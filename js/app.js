@@ -11,16 +11,27 @@ console.log('loaded');
 
 
   const grid = ['b0','b1','b2','b3','b4','b5','b6','b7','b8','b9','b10','b11','b12','b13','b14','b15','b16','b17','b18','b19','b20','b21','b22','b23','b24'];
-console.log(grid[5]);
+  const $li = $('.li');
+  const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />'); //does it need te be .digger?
+  const $playButton = $('#play-button');
 
+
+//start potioning
   startPosition();
   function startPosition(){
     const startValue = Math.floor((Math.random() * 25));
-console.log(startValue);
-    
+    const position = (grid[startValue]);
+console.log(position);
+
+    $playButton.on('click', function() {
+      ('#b0').append(digger);
+
+    });
+
+
+
   }
 
-//random generator
 
 
 //SPAWN RANDOM OBJECT
