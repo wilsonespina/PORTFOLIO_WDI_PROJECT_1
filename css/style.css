@@ -14,16 +14,16 @@ body {
 
 ul {
   margin: 10px auto;
-  width: 1000px;
-  height: 1000px;
+  width: 800px;
+  height: 800px;
   background: blue;
 }
 
 li {
-  width: 198px;
+  width: 98px;
   margin: 1px;
-  height: 198px;
-  line-height: 260px;
+  height: 98px;
+  line-height: 40px;
   background: red;
   color: white;
   text-align: center;
@@ -33,13 +33,13 @@ li {
 
 .livesboard {
   float: left;
-  font-size: 60px;
+  font-size: 40px;
 }
 .scoreboard {
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   clear: both;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .livesboard {
@@ -47,20 +47,18 @@ li {
 }
 .play, .reset {
   float: left;
-  background-color: yellow;
 }
 button {
   font-size: 30px;
-  width: 250px;
-  height: 150px;
+  width: 150px;
+  height: 100px;
 }
 
 #heart1, #heart2, #heart3 {
-  width: 100px;
+  width: 70px;
   float: left;
 }
 
-
 #digger {
-  width: 150px;
+  width: 100px;
 }
