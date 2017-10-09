@@ -6,21 +6,17 @@ h1 {
   text-align: center;
   margin: 50px 0 20px 0;
   font-size: 80px;
-  /*background: green;*/
 }
 
 body {
   background: blue;
 }
 
-h2 {
-  display: inline-block;
-}
 ul {
   margin: 10px auto;
   width: 800px;
   height: 800px;
-  /*background: blue;*/
+  background: blue;
 }
 
 li {
@@ -36,33 +32,34 @@ li {
 }
 
 .livesboard {
-  display: table;
-  /*background: yellow;*/
+  display: inline;
+  background: yellow;
+  float: left;
   font-size: 40px;
-  margin: auto;
+  margin: 0 0 0 100px;
 }
 .scoreboard {
   text-align: center;
   font-size: 40px;
   clear: both;
-  /*background: pink;*/
+  margin-top: 80px;
+  background: pink;
 }
 
+.play, .reset {
+  float: left;
+}
 button {
   font-size: 30px;
   width: 150px;
   height: 100px;
-  margin: 0 5px;
 }
 
 #heart1, #heart2, #heart3 {
-  width: 45px;
+  width: 70px;
   float: left;
 }
 
-.heart {
-  display: inline-block;
-}
 #digger {
   width: 100px;
 }
