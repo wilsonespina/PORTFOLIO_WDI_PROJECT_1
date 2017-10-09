@@ -15,10 +15,9 @@ $(() => {
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />'); //does it need te be .digger?
   const $playButton = $('#play-button');
   const gridWidth = 5; //UPDATE WITH BIGGER GRID
+  const startSquare = 3; //UPDATE with new game?
 
-  const startSquare = 1; //UPDATE with new game?
-  const $startPosition = $('#grid li:nth-child(' + startSquare + ')');
-console.log($startPosition);
+
 
 
   init();
@@ -26,7 +25,8 @@ console.log($startPosition);
   function init (){
 //start potioning
     $playButton.on('click', function() {
-      $startPosition.append(digger);
+      $('#grid li:nth-child(' + startSquare + ')').append(digger);
+      console.log($('#grid li:nth-child(' + startSquare + ')'));
 
     });
     moveDigger();
@@ -51,6 +51,11 @@ console.log($startPosition);
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
         //if statement using key binding to update img position
+
+        let n = 4;
+        const $relativePosition = $('#grid li:nth-child(' + n + ')');
+console.log($relativePosition);
+
 
         if (e.which === 37) {
 console.log('left');
