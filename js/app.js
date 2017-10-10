@@ -36,7 +36,6 @@ $(() => {
       $beginningSquare.append(digger);
       spawn();
     });
-
     reset();
 
 
@@ -95,7 +94,6 @@ console.log(n);
       });
     }
 
-    // const $clear = $('.c');
     //SPAWN RANDOM OBJECT
     function spawn(){
       const $clear = $('.c');
@@ -103,18 +101,12 @@ console.log(n);
       const $randomLocation = $clear[$randomSpawn];
       console.log($randomLocation);
       $($randomLocation).addClass('ruby').append(ruby);
+      score();
     }
 
     //SCORE POINTS
     function score(){
-      if ($('#grid').hasClass('digger')) {
-        console.log($('.li'));
-      // if ($('#grid').is(".ruby.digger")) {
-        console.log('SCORE!');
-        // element.hasClass('class1') || element.hasClass('class2')
-      } else {
-        return;
-      }
+      $('.ruby.digger').addClass('NEW');
     }
 
     // SCOREBOARD
