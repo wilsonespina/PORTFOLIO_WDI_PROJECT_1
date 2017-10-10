@@ -68,9 +68,9 @@ button {
 }
 
 .w {
-  /*background: red;*/
-  background-image: url("/images/block.png");
-
+  background: red;
+  background-image: url("file:///Users/Wilson/Development/WDI_PROJECT_1/images/block.png");
+  background-size: 50% 50%;
 }
 
 .c {

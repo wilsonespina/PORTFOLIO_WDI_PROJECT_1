@@ -45,8 +45,6 @@ $(() => {
       }
     }
 
-
-
     // MOVE DIGGER
     function moveDigger(){
       let n = startSquare;
@@ -94,25 +92,22 @@ console.log(n);
       });
     }
 
-
-
-
-
     //SPAWN RANDOM OBJECT
     function spawn(){
 
-      objectPosition();
-      function objectPosition(){
-        const startValue = Math.floor((Math.random() * 64));
-        const randomPosition = (grid[startValue]);
-console.log(randomPosition);
+      const clear = [$('.c')];
+      // const randomSpawn = Math.floor((Math.random() * (clear.length)));
+      console.log(clear.length);
+      // console.log(randomSpawn);
 
-      //add if functions to stop spawing in blocks
-      }
+//       const startValue = Math.floor((Math.random() * gameString1.length));
+//       const randomPosition = (grid[startValue]);
+// console.log(randomPosition);
     }
 
     // SCOREBOARD
     function scoreboard(){
+
     }
 
     // RESET GAME
