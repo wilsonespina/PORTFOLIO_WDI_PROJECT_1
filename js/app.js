@@ -36,8 +36,8 @@ $(() => {
       $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
       spawn();
+      score();
     });
-    score();
     reset();
 
 
@@ -59,6 +59,9 @@ $(() => {
               (n -= 1);
               $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
 console.log(n);
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                console.log('yooooooooo');
+              }
             } else {
               return;
             }
@@ -68,6 +71,9 @@ console.log(n);
               (n -= 8);
               $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
 console.log(n);
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                console.log('yooooooooo');
+              }
             } else {
               return;
             }
@@ -77,6 +83,9 @@ console.log(n);
               (n += 1);
               $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
 console.log(n);
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                console.log('yooooooooo');
+              }
             } else {
               return;
             }
@@ -95,6 +104,8 @@ console.log(n);
         e.preventDefault(); // prevent the default action (scroll / move caret)
       });
 
+
+
     }
 
     //SPAWN RANDOM OBJECT
@@ -108,11 +119,15 @@ console.log(n);
 
     //SCORE POINTS
     function score(){
-      if (($('#grid').hasClass('.ruby')) && ($('#grid').hasClass('.digger')) && ($('#grid').hasClass('.c'))) {
-        console.log('SCORED!!!!!');
-      } else {
-        console.log('NO');
-      }
+      // if (($('#grid').hasClass('.ruby')) && ($('#grid').hasClass('.digger')) && ($('#grid').hasClass('.c'))) {
+      //   console.log('SCORED!!!!!');
+      // } else {
+      //   console.log('NO');
+      // }
+      // if (){
+      //
+      // }
+
     }
 
 
