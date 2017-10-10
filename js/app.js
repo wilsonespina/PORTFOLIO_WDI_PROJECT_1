@@ -52,49 +52,78 @@ $(() => {
     // MOVE DIGGER
     function moveDigger(){
       let n = startSquare;
+      let score = 0;
+
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
             if (n >= 2 && n <= 64 && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w'){
               (n -= 1);
-              $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
-console.log(n);
+              $('#grid li:nth-child(' + n + ')').append(digger);
               if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
-                console.log('yooooooooo');
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby');
+                spawn();
+                score++;
+console.log(score);
+                $('#grid li:nth-child(' + n + ')').append(digger);
               }
             } else {
               return;
             }
             break;
+
           case 38: // up
             if (n >= 9 && n <= 64 && gameString1[n-9] !== 'w') {
               (n -= 8);
-              $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
-console.log(n);
+              $('#grid li:nth-child(' + n + ')').append(digger);
               if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
-                console.log('yooooooooo');
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby');
+                spawn();
+                score++;
+console.log(score);
+                $('#grid li:nth-child(' + n + ')').append(digger);
+
               }
             } else {
               return;
             }
             break;
+
           case 39: // right
             if (n >= 1 && n <= 63 && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w') {
               (n += 1);
-              $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
-console.log(n);
+              $('#grid li:nth-child(' + n + ')').append(digger);
               if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
-                console.log('yooooooooo');
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby');
+                spawn();
+                score++;
+console.log(score);
+                $('#grid li:nth-child(' + n + ')').append(digger);
               }
             } else {
               return;
             }
             break;
+
           case 40: // down
             if (n >= 1 && n <= 56 && gameString1[n+7] !== 'w') {
               (n += 8);
-              $('#grid li:nth-child(' + n + ')').addClass('digger').append(digger);
-console.log(n);
+              $('#grid li:nth-child(' + n + ')').append(digger);
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby');
+                spawn();
+                score++;
+console.log(score);
+                $('#grid li:nth-child(' + n + ')').append(digger);
+              }
             } else {
               return;
             }
@@ -113,7 +142,7 @@ console.log(n);
       const $clear = $('.c');
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       const $randomLocation = $clear[$randomSpawn];
-      console.log($randomLocation);
+// console.log($randomLocation);
       $($randomLocation).addClass('ruby').append(ruby);
     }
 
