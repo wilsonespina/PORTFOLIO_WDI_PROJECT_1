@@ -19,17 +19,19 @@ $(() => {
   const gridWidth = 8; //UPDATE WITH BIGGER GRID
   const startSquare = 42; //UPDATE with new game?
   const $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
-
+  let score = 0;
+  let timer = 60;
+  const $score = $('#score');
+  const $timer = $('#timer');
 
   init();
 
   function init (){
-    //start potioning
     loadBoard();
-    // walls();
     $playButton.on('click', function() {
       $beginningSquare.append(digger);
     });
+    reset();
     moveDigger();
     spawn();
 
@@ -51,9 +53,9 @@ $(() => {
     //       return;
     //     }
     //   }
-    // }
+    // }2
 
-    
+
     // MOVE DIGGER
     function moveDigger(){
       let n = startSquare;
@@ -109,15 +111,31 @@ console.log(n);
 
     //SPAWN RANDOM OBJECT
     function spawn(){
-
       objectPosition();
       function objectPosition(){
+
+        for (var i = 0; i < array.length; i++) {
+          array[i]
+        }
         const startValue = Math.floor((Math.random() * 64));
         const randomPosition = (grid[startValue]);
 console.log(randomPosition);
       //add if functions to stop spawing in blocks
       }
-
     }
+
+    // SCOREBOARD
+    function scoreboard(){
+    }
+
+    // RESET GAME
+    function reset() {
+      score = 0;
+      timer = 60;
+
+      $score.html(score);
+      $timer.html(timer);
+    }
+
   }
 });
