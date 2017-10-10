@@ -10,14 +10,14 @@ $(() => {
   //Assign key bindings to arrow keys to make digger move around the grid
 
   const grid = ['b0','b1','b2','b3','b4','b5','b6','b7','b8','b9','b10','b11','b12','b13','b14','b15','b16','b17','b18','b19','b20','b21','b22','b23','b24','b25','b26','b27','b28','b29','b30','b31','b32','b33','b34','b35','b36','b37','b38','b39','b40','b41','b42','b43','b44','b45','b46','b47','b48','b49','b50','b51','b52','b53','b54','b55','b56','b57','b58','b59','b60','b61','b62','b63','b64'];
-  const gameString1 = ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','w','c','w','w','w','c','c','c','w','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','w','w','w','w','w','w','w','w','w','w'];
+  const gameString1 = ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','w','c','w','w','w','c','c','c','w','c','c','w','w','w','c','w','c','c','w','w','w','c','c','c','c','c','w','w','w','w','w','w','w','w','w','w'];
   // const $li = $('.li');
   const $ul = $('.ul');
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />');
   const block = $('<img id ="block" src="images/block.png" alt="block image" />');
   const $playButton = $('#play-button');
   // const gridWidth = 8; //UPDATE WITH BIGGER GRID
-  const startSquare = 42; //UPDATE with new game?
+  const startSquare = 43; //UPDATE with new game?
   let $beginningSquare = null;
   let score = 0;
   let timer = 60;
@@ -32,9 +32,11 @@ $(() => {
     $playButton.on('click', function() {
       $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
+
     });
-    reset();
     spawn();
+    reset();
+
 
     //CREATE BOARD
     function loadBoard(){
@@ -99,12 +101,28 @@ console.log(n);
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       $clear[$randomSpawn].append(digger);
       console.log($clear[$randomSpawn]);
-
     }
+
+    //SCORE POINTS
+    // function points() {
+    //   const userAnswer     = $input.val();
+    //   const equasionAnswer = eval(currentEquation).toString();
+    //
+    //   if (userAnswer === equasionAnswer) {
+    //     score++;
+    //     updateScore();
+    //   } else {
+    //     score--;
+    //     updateScore();
+    //   }
+    // }
+
 
     // SCOREBOARD
     function scoreboard(){
-
+      let score = 0;
+      if (score >= 0) $score.html(score);
+      $input.val('');
     }
 
     // RESET GAME
