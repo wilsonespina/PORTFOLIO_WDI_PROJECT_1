@@ -92,17 +92,14 @@ console.log(n);
       });
     }
 
+    // const $clear = $('.c');
     //SPAWN RANDOM OBJECT
     function spawn(){
+      const $clear = $('.c');
+      const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
+      $clear[$randomSpawn].append(digger);
+      console.log($clear[$randomSpawn]);
 
-      const clear = [$('.c')];
-      // const randomSpawn = Math.floor((Math.random() * (clear.length)));
-      console.log(clear.length);
-      // console.log(randomSpawn);
-
-//       const startValue = Math.floor((Math.random() * gameString1.length));
-//       const randomPosition = (grid[startValue]);
-// console.log(randomPosition);
     }
 
     // SCOREBOARD
