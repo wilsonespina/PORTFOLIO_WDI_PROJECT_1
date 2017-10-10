@@ -18,7 +18,7 @@ $(() => {
   const $playButton = $('#play-button');
   const gridWidth = 8; //UPDATE WITH BIGGER GRID
   const startSquare = 42; //UPDATE with new game?
-  const $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
+  let $beginningSquare = null;
   let score = 0;
   let timer = 60;
   const $score = $('#score');
@@ -28,43 +28,41 @@ $(() => {
 
   function init (){
     loadBoard();
+    moveDigger();
     $playButton.on('click', function() {
+      $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
     });
     reset();
-    moveDigger();
     spawn();
 
     //CREATE BOARD
     function loadBoard(){
       // const gameString = [];
-      for (let i = 0; i < grid.length; i++) {
-        $('#grid li:nth-child(' + i + ')').html(gameString1[i-1]);
-      }
-      for (let i = 0; i < grid.length; i++) {
-        (gameString1[i] === 'w');
-        $('#grid li:nth-child(' + i + ')').append(block);
-      }
-    }
+      // for (let i = 0; i < grid.length; i++) {
+      //   $('#grid li:nth-child(' + i + ')').html(gameString1[i-1]);
+      // }
 
+      for (var i = 0; i < gameString1.length; i++) {
+        const $li = $(`<li id="${grid[i + 1]}" class="${gameString1[i]}">${gameString1[i]}</li>`);
+        $('#grid').append($li);
+      }
 
-    //CREATE WALLS
-    // function walls(){
+    // // CREATE WALLS
     //   for (let i = 0; i < grid.length; i++) {
-    //     if ($li.text() == gameString1[i]) {
-    //       console.log(gameString1[i]);
-    //     // $('#grid li:nth-child(' + i + ')').append(block);
+    //     if (gameString1[i] === 'w') {
+    //       $('#grid li:nth-child(' + i + ')').append(block);
     //     } else {
     //       return;
     //     }
     //   }
-    // }2
+    }
 
 
     // MOVE DIGGER
     function moveDigger(){
       let n = startSquare;
-      const $currentPosition = $('#grid li:nth-child(' + n + ')');
+// const $currentPosition = $('#grid li:nth-child(' + n + ')');
 
       $(document).keydown(function(e) {
         switch(e.which) {
@@ -125,6 +123,7 @@ console.log(n);
         const startValue = Math.floor((Math.random() * 64));
         const randomPosition = (grid[startValue]);
 console.log(randomPosition);
+
       //add if functions to stop spawing in blocks
       }
     }

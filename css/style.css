@@ -66,3 +66,11 @@ button {
 #digger, #block {
   width: 100px;
 }
+
+.w {
+  background: red;
+}
+
+.c {
+  background: green;
+}
