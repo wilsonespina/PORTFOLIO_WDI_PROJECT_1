@@ -22,7 +22,6 @@ $(() => {
   const startSquare = 10; //UPDATE with new game?
   let $beginningSquare = null;
   let level = null; //change according to difficulty
-
   let score1 = 0;
   let timer = 60;
   const $score = $('#score');
@@ -36,9 +35,10 @@ $(() => {
     $playButton.on('click', function() {
       $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
+      countdown();
       spawn();
-      score();
     });
+
     reset();
 
 
@@ -73,6 +73,7 @@ $(() => {
               (n -= 1);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              scoreboard();
 console.log(score);
             } else {
               return;
@@ -84,6 +85,7 @@ console.log(score);
               (n -= gridWidth);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              scoreboard();
 console.log(score);
             } else {
               return;
@@ -95,6 +97,7 @@ console.log(score);
               (n += 1);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              scoreboard();
 console.log(score);
             } else {
               return;
@@ -106,6 +109,7 @@ console.log(score);
               (n += gridWidth);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              scoreboard();
 console.log(score);
             } else {
               return;
@@ -115,6 +119,11 @@ console.log(score);
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
       });
+
+      //SCOREBOARD
+      function scoreboard(){
+        if (score >= 0) $score.html(score);
+      }
     }
 
     //SPAWN RANDOM OBJECT
@@ -125,25 +134,21 @@ console.log(score);
       $($randomLocation).addClass('ruby').append(ruby);
     }
 
-    //SCORE POINTS
-    function score(){
-      // if (($('#grid').hasClass('.ruby')) && ($('#grid').hasClass('.digger')) && ($('#grid').hasClass('.c'))) {
-      //   console.log('SCORED!!!!!');
-      // } else {
-      //   console.log('NO');
-      // }
-      // if (){
-      //
-      // }
+
+    // TIMER
+    function countdown(){
+      const $timer = $('#timer');
+      let timeleft = 20;
+
+      const downloadTimer = setInterval(function(){
+        $timer.value = 60 - --timeleft;
+        if(timeleft <= 0)
+          clearInterval(downloadTimer);
+        $timer.text(timeleft);
+        // console.log(timeleft);
+      },1000);
     }
 
-
-    // SCOREBOARD
-    function scoreboard(){
-    //   let score = 0;
-    //   if (score >= 0) $score.html(score);
-    //   $input.val('');
-    }
 
     // RESET GAME
     function reset() {
