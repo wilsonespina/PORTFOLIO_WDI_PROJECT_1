@@ -68,7 +68,9 @@ button {
 }
 
 .w {
-  background: red;
+  /*background: red;*/
+  background-image: url("/images/block.png");
+
 }
 
 .c {
