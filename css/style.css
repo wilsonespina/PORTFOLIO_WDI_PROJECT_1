@@ -63,6 +63,6 @@ button {
 .heart {
   display: inline-block;
 }
-#digger {
+#digger, #block {
   width: 100px;
 }
