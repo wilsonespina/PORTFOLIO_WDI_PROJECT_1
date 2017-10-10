@@ -63,7 +63,7 @@ button {
 .heart {
   display: inline-block;
 }
-#digger, #block {
+#digger, #block, #ruby {
   width: 100px;
 }
 
@@ -78,5 +78,5 @@ button {
 }
 
 .spawnObject {
-  background: : yellow;
+  background: yellow;
 }
