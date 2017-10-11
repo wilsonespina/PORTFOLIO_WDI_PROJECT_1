@@ -3,7 +3,7 @@ $(() => {
   // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','g'];
-  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','c','g','w','c','s','c','c','c','c','g','w','w','w','w','w','w','w','g'];
+  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','c','g','w','c','s','c','c','c','c','g','w','w','w','w','w','w','w','w'];
   // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
 
   // gameString2 = 9 x 9 grid
@@ -67,15 +67,6 @@ $(() => {
       let n = startSquare;
       let score = 0;
 
-      // function ruby(){
-      //   $('#grid li:nth-child(' + n + ') img').remove();
-      //   const $remove = $('#grid li:nth-child(' + n + ')');
-      //   $($remove).removeClass('ruby c');
-      //   $('#grid li:nth-child(' + n + ')').append(digger);
-      //   $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
-      // }
-
-
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
@@ -94,6 +85,7 @@ $(() => {
             //MOVE DIGGER
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
 
@@ -110,6 +102,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
 
@@ -125,6 +118,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
 
@@ -141,6 +135,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-gridWidth) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
           default: return; // exit this handler for other keys
@@ -152,7 +147,19 @@ $(() => {
       function scoreboard(){
         if (score >= 0) $score.html(score);
       }
+
+      //SCORE
+      // function scoring(){
+      //   if ($($'('.g').attr('class')').includes('ruby')) {
+      //     score+=10;
+      //   }
+      //
+      // }
+
+
     }
+
+
 
     // TIMER
     function countdown(){
