@@ -3,8 +3,8 @@ $(() => {
 // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
-  ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','g','g'];
-  // ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','w','w'];
+  // ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+  ['c','c','c','c','c','c','c','c','c','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','c','c','c'];
 
 // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -86,13 +86,14 @@ $(() => {
   //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n -= 1);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
+                $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                spawnRuby();
+                // spawnRuby();
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
@@ -106,13 +107,14 @@ $(() => {
             if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w' && gameString1[n-(gridWidth+1)] !== 'g') {
               (n -= gridWidth);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth*2)) + ')').attr('class')).includes('c')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
+                $('#grid li:nth-child(' + (n-(gridWidth*2)) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                spawnRuby();
+                // spawnRuby();
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
@@ -127,13 +129,14 @@ $(() => {
     //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n += 1);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
+                $('#grid li:nth-child(' + (n+1) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                spawnRuby();
+                // spawnRuby();
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
@@ -147,13 +150,14 @@ $(() => {
             if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+gridWidth-1] !== 'w' && gameString1[n+gridWidth-1] !== 'g') {
               (n += gridWidth);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth*2)) + ')').attr('class')).includes('c')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
+                $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                spawnRuby();
+                // spawnRuby();
               }
 
               $('#grid li:nth-child(' + n + ')').append(digger);
