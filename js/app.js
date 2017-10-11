@@ -3,8 +3,8 @@ $(() => {
 // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
-  ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','w','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
-  // ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+  // ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','w','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+  ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','w','w'];
 
 // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -73,7 +73,7 @@ $(() => {
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
-            if (n >= 2 && n <= grid.length && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w'){
+            if (n >= 2 && n <= grid.length && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w' && gameString1[n-2] !== 'g'){
   //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n -= 1);
               ruby();
@@ -86,11 +86,11 @@ $(() => {
             break;
 
           case 38: // up
-            if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w') {
+            if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w' && gameString1[n-(gridWidth+1)] !== 'g') {
               (n -= gridWidth);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
-              $('#grid li:nth-child(' + n+gridWidth + ')').addClass('c');
+              $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
               scoreboard();
             } else {
               return;
@@ -98,7 +98,7 @@ $(() => {
             break;
 
           case 39: // right
-            if (n >= 1 && n <= (grid.length-1) && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w') {
+            if (n >= 1 && n <= (grid.length-1) && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w' && gameString1[n] !== 'g') {
     //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n += 1);
               ruby();
@@ -111,11 +111,11 @@ $(() => {
             break;
 
           case 40: // down
-            if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+7] !== 'w') {
+            if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+gridWidth-1] !== 'w' && gameString1[n+gridWidth-1] !== 'g') {
               (n += gridWidth);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
-              $('#grid li:nth-child(' + n-gridWidth + ')').addClass('c');
+              $('#grid li:nth-child(' + (n-gridWidth) + ')').addClass('c');
               scoreboard();
             } else {
               return;
