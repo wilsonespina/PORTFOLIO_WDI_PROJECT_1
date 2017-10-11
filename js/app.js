@@ -3,8 +3,8 @@ $(() => {
   // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','g'];
-  // ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','g','g'];
-  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
+  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','c','g','w','c','s','c','c','c','c','g','w','w','w','w','w','w','w','g'];
+  // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
 
   // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -82,14 +82,12 @@ $(() => {
             if ($('#grid li:nth-child('+(n-1)+')').attr('class').includes('ruby') && $('#grid   li:nth-child('+(n-2)+')').attr('class').includes('w') || $('#grid li:nth-child('+(n-1)+')').attr('class').includes('w')) {
               break;
             }
-
             (n -= 1);
             //MOVE BLOCK
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c','g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('g')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
-              // $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
               // (score+=10);
             }
@@ -98,12 +96,13 @@ $(() => {
             $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
             scoreboard();
             break;
+
           case 38: // up
-            if ($('#grid li:nth-child('+(n-8)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n-16)+')').attr('class').includes('w') || $('#grid li:nth-child('+(n-8)+')').attr('class').includes('w')) {
+            if ($('#grid li:nth-child('+(n-gridWidth)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n-(2*gridWidth))+')').attr('class').includes('w') || $('#grid li:nth-child('+(n-8)+')').attr('class').includes('w')) {
               break;
             }
             (n -= gridWidth);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c','g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('g')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -113,12 +112,13 @@ $(() => {
             $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
             scoreboard();
             break;
+
           case 39: // right
             if ($('#grid li:nth-child('+(n+1)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n+2)+')').attr('class').includes('w') || $('#grid li:nth-child('+(n+1)+')').attr('class').includes('w')) {
               break;
             }
             (n += 1);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c','g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('g')) {
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
               $('#grid li:nth-child(' + (n+1) + ')').addClass('ruby').append(ruby);
@@ -127,12 +127,13 @@ $(() => {
             $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
             scoreboard();
             break;
+
           case 40: // down
-            if ($('#grid li:nth-child('+(n+8)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n+16)+')').attr('class').includes('w') || $('#grid li:nth-child('+(n+8)+')').attr('class').includes('w')) {
+            if ($('#grid li:nth-child('+(n+gridWidth)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n+(2*gridWidth))+')').attr('class').includes('w') || $('#grid li:nth-child('+(n+gridWidth)+')').attr('class').includes('w')) {
               break;
             }
             (n += gridWidth);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c','g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('g')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
