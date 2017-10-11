@@ -3,7 +3,9 @@ $(() => {
 // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
-  ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+  ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','w','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+  // ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
+
 // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
 // gameString3 = 10 x 10 grid
@@ -16,7 +18,7 @@ $(() => {
   const $playButton = $('#play-button');
   const $resetButton = $('#reset-button');
   const gridWidth = Math.sqrt(gameString1.length); //UPDATE WITH BIGGER GRID
-  const startSquare = 10; //UPDATE with new game?
+  const startSquare = 51; //UPDATE with new game?
   let $beginningSquare = null;
   let level = null; //change according to difficulty
   let score1 = 0;
@@ -74,8 +76,8 @@ $(() => {
             if (n >= 2 && n <= grid.length && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w'){
   //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n -= 1);
-              $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              $('#grid li:nth-child(' + n + ')').append(digger);
               scoreboard();
             } else {
               return;
@@ -85,8 +87,8 @@ $(() => {
           case 38: // up
             if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w') {
               (n -= gridWidth);
-              $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              $('#grid li:nth-child(' + n + ')').append(digger);
               scoreboard();
             } else {
               return;
@@ -97,8 +99,8 @@ $(() => {
             if (n >= 1 && n <= (grid.length-1) && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w') {
     //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n += 1);
-              $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              $('#grid li:nth-child(' + n + ')').append(digger);
               scoreboard();
             } else {
               return;
@@ -108,10 +110,9 @@ $(() => {
           case 40: // down
             if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+7] !== 'w') {
               (n += gridWidth);
-              $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
+              $('#grid li:nth-child(' + n + ')').append(digger);
               scoreboard();
-
             } else {
               return;
             }
