@@ -49,29 +49,35 @@ $(() => {
         $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
         $beginningSquare.append(digger);
         countdown();
-        spawn();
+        spawnRuby();
       });
     }
 
+    //SPAWN RANDOM OBJECT
+    function spawnRuby(){
+      const $clear = $('.c');
+      const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
+      const $randomLocation = $clear[$randomSpawn];
+      $($randomLocation).addClass('ruby').append(ruby);
+    }
 
     // MOVE DIGGER
     function moveDigger(){
       let n = startSquare;
       let score = 0;
 
-      function ruby(){
-        if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
-          $('#grid li:nth-child(' + n + ') img').remove();
-          const $remove = $('#grid li:nth-child(' + n + ')');
-          $($remove).removeClass('ruby c');
-          $('#grid li:nth-child(' + n + ')').append(digger);
-          (score+=10);
+      // function ruby(){
+      //   if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+      //     $('#grid li:nth-child(' + n + ') img').remove();
+      //     const $remove = $('#grid li:nth-child(' + n + ')');
+      //     $($remove).removeClass('ruby c');
+      //     $('#grid li:nth-child(' + n + ')').append(digger);
+      //     (score+=10);
+      //     spawnRuby();
+      //   }
+      // }
 
-          spawn();
 
-
-        }
-      }
 
       $(document).keydown(function(e) {
         switch(e.which) {
@@ -79,7 +85,15 @@ $(() => {
             if (n >= 2 && n <= grid.length && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w' && gameString1[n-2] !== 'g'){
   //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n -= 1);
-              ruby();
+              // ruby();
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby c');
+                $('#grid li:nth-child(' + n + ')').append(digger);
+                (score+=10);
+                spawnRuby();
+              }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
               scoreboard();
@@ -91,7 +105,15 @@ $(() => {
           case 38: // up
             if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w' && gameString1[n-(gridWidth+1)] !== 'g') {
               (n -= gridWidth);
-              ruby();
+              // ruby();
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby c');
+                $('#grid li:nth-child(' + n + ')').append(digger);
+                (score+=10);
+                spawnRuby();
+              }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
               scoreboard();
@@ -104,7 +126,15 @@ $(() => {
             if (n >= 1 && n <= (grid.length-1) && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w' && gameString1[n] !== 'g') {
     //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
               (n += 1);
-              ruby();
+              // ruby();
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby c');
+                $('#grid li:nth-child(' + n + ')').append(digger);
+                (score+=10);
+                spawnRuby();
+              }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
               scoreboard();
@@ -116,7 +146,16 @@ $(() => {
           case 40: // down
             if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+gridWidth-1] !== 'w' && gameString1[n+gridWidth-1] !== 'g') {
               (n += gridWidth);
-              ruby();
+              // ruby();
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
+                $('#grid li:nth-child(' + n + ') img').remove();
+                const $remove = $('#grid li:nth-child(' + n + ')');
+                $($remove).removeClass('ruby c');
+                $('#grid li:nth-child(' + n + ')').append(digger);
+                (score+=10);
+                spawnRuby();
+              }
+
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n-gridWidth) + ')').addClass('c');
               scoreboard();
@@ -128,21 +167,35 @@ $(() => {
 
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
-console.log(n);
+
+        //MOVE BLOCK
+        function moveBlock(){
+          console.log(n);
+          console.log(e.which);
+          if (e.which === 37 && (($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('ruby')) && ($('#grid li:nth-child(' + (n-1) + ')')) !== 'w') { //LEFT
+            console.log('LEFT');
+            // $('#grid li:nth-child(' + n + ')').append(digger);
+            // $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
+            // $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
+          } else if  (e.which === 38) { //UP
+
+          } else if  (e.which === 39) { //RIGHT
+
+          } else if  (e.which === 40) { //DOWN
+
+          } else {
+            return;
+          }
+        }
+
+
+
       });
 
       //SCOREBOARD
       function scoreboard(){
         if (score >= 0) $score.html(score);
       }
-    }
-
-    //SPAWN RANDOM OBJECT
-    function spawn(){
-      const $clear = $('.c');
-      const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
-      const $randomLocation = $clear[$randomSpawn];
-      $($randomLocation).addClass('ruby').append(ruby);
     }
 
     // TIMER
