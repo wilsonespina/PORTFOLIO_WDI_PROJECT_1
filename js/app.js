@@ -5,10 +5,9 @@ $(() => {
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
   ['w','w','w','w','w','w','w','w','w','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','c','c','c','c','g','g','w','w','w','w','w','w','g','g'];
 // gameString2 = 9 x 9 grid
-  const gameString2 = [];
+  const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
 // gameString3 = 10 x 10 grid
-  const gameString3 = [];
-
+  const gameString3 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
   const $li = $('.li');
   const $ul = $('.ul');
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />');
@@ -17,7 +16,6 @@ $(() => {
   const $playButton = $('#play-button');
   const $resetButton = $('#reset-button');
   const gridWidth = Math.sqrt(gameString1.length); //UPDATE WITH BIGGER GRID
-  console.log(gridWidth);
   const startSquare = 10; //UPDATE with new game?
   let $beginningSquare = null;
   let level = null; //change according to difficulty
@@ -31,7 +29,7 @@ $(() => {
   function init (){
     loadBoard();
     moveDigger();
-    $playButton.on('click', function() {
+    $playButton.one('click', function() {
       $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
       countdown();
@@ -73,7 +71,6 @@ $(() => {
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
               scoreboard();
-console.log(score);
             } else {
               return;
             }
@@ -85,7 +82,6 @@ console.log(score);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
               scoreboard();
-console.log(score);
             } else {
               return;
             }
@@ -98,7 +94,6 @@ console.log(score);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
               scoreboard();
-console.log(score);
             } else {
               return;
             }
@@ -110,8 +105,7 @@ console.log(score);
               $('#grid li:nth-child(' + n + ')').append(digger);
               ruby();
               scoreboard();
-                console.log(n);
-console.log(score);
+
             } else {
               return;
             }
@@ -120,6 +114,7 @@ console.log(score);
 
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
+console.log(n);
       });
 
       //SCOREBOARD
