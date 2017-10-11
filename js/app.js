@@ -3,7 +3,7 @@ $(() => {
   // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','g'];
-  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','c','g','w','c','s','c','c','c','c','g','w','w','w','w','w','w','w','w'];
+  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','g','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
   // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
 
   // gameString2 = 9 x 9 grid
@@ -75,7 +75,7 @@ $(() => {
             }
             (n -= 1);
             //MOVE BLOCK
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -94,7 +94,7 @@ $(() => {
               break;
             }
             (n -= gridWidth);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -111,7 +111,7 @@ $(() => {
               break;
             }
             (n += 1);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c')) {
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
               $('#grid li:nth-child(' + (n+1) + ')').addClass('ruby').append(ruby);
@@ -127,7 +127,7 @@ $(() => {
               break;
             }
             (n += gridWidth);
-            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('g')) {
+            if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c')) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -169,7 +169,7 @@ $(() => {
       const downloadTimer = setInterval(function(){
         $timer.value = 60 - --timeleft;
         if(timeleft <= 0)
-        clearInterval(downloadTimer);
+          clearInterval(downloadTimer);
         $timer.text(timeleft);
         // console.log(timeleft);
       },1000);
