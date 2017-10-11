@@ -4,7 +4,7 @@ $(() => {
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
   // ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','w','g','g'];
-  ['c','c','c','c','c','c','c','c','c','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','s','c','c','c','g','g','w','w','w','w','w','c','c','c'];
+  ['c','c','c','c','c','c','c','c','c','c','w','w','c','w','c','w','w','c','c','c','c','c','c','w','w','c','w','c','w','c','w','w','w','w','c','c','w','c','c','w','w','w','c','w','c','c','g','g','w','c','s','c','c','c','g','g','c','c','c','c','c','c','c','c'];
 
 // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -77,16 +77,13 @@ $(() => {
       //   }
       // }
 
-
-
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
-            if (n >= 2 && n <= grid.length && n !== 1 && n !== 9 && n !== 17 && n !== 25 && n !== 33 && n !== 41 && n !== 49 && n !== 57 && gameString1[n-2] !== 'w' && gameString1[n-2] !== 'g'){
-  //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
+            if (n >= 2 && n <= gameString1.length && n !== ((gridWidth*0)+1) && n !== ((gridWidth*1)+1) && n !== ((gridWidth*2)+1) && n !== ((gridWidth*3)+1) && n !== ((gridWidth*4)+1) && n !== ((gridWidth*5)+1) && n !== ((gridWidth*6)+1) && n !== ((gridWidth*7)+1) && n !== ((gridWidth*8)+1) && n !== ((gridWidth*9)+1) && n !== ((gridWidth*10)+1)){
               (n -= 1);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c','g')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
@@ -104,15 +101,15 @@ $(() => {
             break;
 
           case 38: // up
-            if (n >= (gridWidth + 1) && n <= grid.length && gameString1[n-(gridWidth+1)] !== 'w' && gameString1[n-(gridWidth+1)] !== 'g') {
+            if (n >= (gridWidth + 1) && n <= gameString1.length && gameString1[n-(gridWidth+1)] !== 'w' && gameString1[n-(gridWidth+1)] !== 'g') {
               (n -= gridWidth);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth*2)) + ')').attr('class')).includes('c')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n-(gridWidth*2)) + ')').attr('class')).includes('c','g')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
-                $('#grid li:nth-child(' + (n-(gridWidth*2)) + ')').addClass('ruby').append(ruby);
+                $('#grid li:nth-child(' + (n-(gridWidth)) + ')').addClass('ruby').append(ruby);
                 (score+=10);
                 // spawnRuby();
               }
@@ -125,11 +122,10 @@ $(() => {
             break;
 
           case 39: // right
-            if (n >= 1 && n <= (grid.length-1) && n !== 8 && n !== 16 && n !== 24 && n !== 32 && n !== 40 && n !== 48 && n !== 56 && n !== 64 && gameString1[n] !== 'w' && gameString1[n] !== 'g') {
-    //Add for loop for if cases to make game expandable for levels 2 & 3!!!!
+            if (n >= 1 && n <= (grid.length-1) && n !== (gridWidth*1) && n !== (gridWidth*2) && n !== (gridWidth*3) && n !== (gridWidth*4) && n !== (gridWidth*5) && n !== (gridWidth*6) && n !== (gridWidth*7) && n !== (gridWidth*8) && n !== (gridWidth*9) && n !== (gridWidth*10) && gameString1[n] !== 'w' && gameString1[n] !== 'g') {
               (n += 1);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c','g')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
@@ -150,7 +146,7 @@ $(() => {
             if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+gridWidth-1] !== 'w' && gameString1[n+gridWidth-1] !== 'g') {
               (n += gridWidth);
               // ruby();
-              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth*2)) + ')').attr('class')).includes('c')) {
+              if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth*2)) + ')').attr('class')).includes('c','g')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
                 $($remove).removeClass('ruby c');
