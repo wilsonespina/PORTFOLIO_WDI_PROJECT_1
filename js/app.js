@@ -68,15 +68,13 @@ $(() => {
       let score = 0;
 
       // function ruby(){
-      //   if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
-      //     $('#grid li:nth-child(' + n + ') img').remove();
-      //     const $remove = $('#grid li:nth-child(' + n + ')');
-      //     $($remove).removeClass('ruby c');
-      //     $('#grid li:nth-child(' + n + ')').append(digger);
-      //     (score+=10);
-      //     spawnRuby();
-      //   }
+      //   $('#grid li:nth-child(' + n + ') img').remove();
+      //   const $remove = $('#grid li:nth-child(' + n + ')');
+      //   $($remove).removeClass('ruby c');
+      //   $('#grid li:nth-child(' + n + ')').append(digger);
+      //   $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
       // }
+
 
       $(document).keydown(function(e) {
         switch(e.which) {
@@ -90,8 +88,7 @@ $(() => {
                 $($remove).removeClass('ruby c');
                 $('#grid li:nth-child(' + n + ')').append(digger);
                 $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
-                (score+=10);
-                // spawnRuby();
+                // (score+=10);
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
@@ -112,7 +109,6 @@ $(() => {
                 $('#grid li:nth-child(' + n + ')').append(digger);
                 $('#grid li:nth-child(' + (n-(gridWidth)) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                // spawnRuby();
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
@@ -133,7 +129,6 @@ $(() => {
                 $('#grid li:nth-child(' + n + ')').append(digger);
                 $('#grid li:nth-child(' + (n+1) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                // spawnRuby();
               }
               $('#grid li:nth-child(' + n + ')').append(digger);
               $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
@@ -146,7 +141,6 @@ $(() => {
           case 40: // down
             if (n >= 1 && n <= (grid.length-gridWidth) && gameString1[n+gridWidth-1] !== 'w' && gameString1[n+gridWidth-1] !== 'g') {
               (n += gridWidth);
-              // ruby();
               if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && ($('#grid li:nth-child(' + (n+(gridWidth*2)) + ')').attr('class')).includes('c','g')) {
                 $('#grid li:nth-child(' + n + ') img').remove();
                 const $remove = $('#grid li:nth-child(' + n + ')');
@@ -154,7 +148,6 @@ $(() => {
                 $('#grid li:nth-child(' + n + ')').append(digger);
                 $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('ruby').append(ruby);
                 (score+=10);
-                // spawnRuby();
               }
 
               $('#grid li:nth-child(' + n + ')').append(digger);
