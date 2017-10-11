@@ -26,15 +26,10 @@ $(() => {
 
   init();
 
-  function init (){
+  function init (){ //initiates all subsequent functions
     loadBoard();
     moveDigger();
-    $playButton.one('click', function() {
-      $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
-      $beginningSquare.append(digger);
-      countdown();
-      spawn();
-    });
+    play();
     reset();
 
 
@@ -45,6 +40,17 @@ $(() => {
         $('#grid').append($li);
       }
     }
+
+    //PLAY button
+    function play(){
+      $playButton.one('click', function() {
+        $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
+        $beginningSquare.append(digger);
+        countdown();
+        spawn();
+      });
+    }
+
 
     // MOVE DIGGER
     function moveDigger(){
