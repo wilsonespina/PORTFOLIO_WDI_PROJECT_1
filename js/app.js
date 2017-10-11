@@ -63,7 +63,7 @@ $(() => {
         if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby')) {
           $('#grid li:nth-child(' + n + ') img').remove();
           const $remove = $('#grid li:nth-child(' + n + ')');
-          $($remove).removeClass('ruby');
+          $($remove).removeClass('ruby c');
           spawn();
           score++;
           $('#grid li:nth-child(' + n + ')').append(digger);
@@ -78,6 +78,7 @@ $(() => {
               (n -= 1);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
+              $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
               scoreboard();
             } else {
               return;
@@ -89,6 +90,7 @@ $(() => {
               (n -= gridWidth);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
+              $('#grid li:nth-child(' + n+gridWidth + ')').addClass('c');
               scoreboard();
             } else {
               return;
@@ -101,6 +103,7 @@ $(() => {
               (n += 1);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
+              $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
               scoreboard();
             } else {
               return;
@@ -112,6 +115,7 @@ $(() => {
               (n += gridWidth);
               ruby();
               $('#grid li:nth-child(' + n + ')').append(digger);
+              $('#grid li:nth-child(' + n-gridWidth + ')').addClass('c');
               scoreboard();
             } else {
               return;
