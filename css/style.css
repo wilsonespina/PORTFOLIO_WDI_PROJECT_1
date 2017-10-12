@@ -5,12 +5,14 @@
 h1 {
   text-align: center;
   margin: 50px 0 20px 0;
-  font-size: 80px;
+  font-size: 180px;
+  color: white;
   background: green;
 }
 
 body {
   background: teal;
+  font-family: 'VT323', monospace;
 }
 
 .screen {
