@@ -167,7 +167,7 @@ $(() => {
       // TIMER
       function countdown(){
         const $timer = $('#timer');
-        let timeleft = 10;
+        let timeleft = 5;
 
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
@@ -175,7 +175,9 @@ $(() => {
             clearInterval(downloadTimer);
           $timer.text(timeleft);
           console.log(score);
-          if (timeleft === 0) alert(`GAME OVER You Scored ${score} points`);
+          if (timeleft === 0) alert(
+            `GAME OVER
+You Scored ${score} points!`);
           // console.log(timeleft);
         },1000);
       }
