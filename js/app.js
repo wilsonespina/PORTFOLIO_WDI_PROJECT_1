@@ -1,12 +1,10 @@
 $(() => {
   const grid = ['b0','b1','b2','b3','b4','b5','b6','b7','b8','b9','b10','b11','b12','b13','b14','b15','b16','b17','b18','b19','b20','b21','b22','b23','b24','b25','b26','b27','b28','b29','b30','b31','b32','b33','b34','b35','b36','b37','b38','b39','b40','b41','b42','b43','b44','b45','b46','b47','b48','b49','b50','b51','b52','b53','b54','b55','b56','b57','b58','b59','b60','b61','b62','b63','b64','b65','b66','b67','b68','b69','b70','b71','b72','b73','b74','b75','b76','b77','b78','b79','b80','b81','b82','b83','b84','b85','b86','b87','b88','b89','b90','b91','b92','b93','b94','b95','b96','b97','b98','b99'];
-  const rubySquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b50','b51','b52',];
-  const loseSquares1 = ['b18'];
+  const rubySquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b50','b51','b52'];
+  const loseSquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b50','b51','b52'];
   // gameString1 = 8 x 8 grid
   const gameString1 =
   ['w','w','w','w','w','w','w','w','w','s','c','c','c','c','c','w','w','c','c','c','w','w','c','w','w','c','w','c','c','c','c','w','w','c','c','c','c','w','c','w','w','c','w','c','w','w','c','w','w','c','c','c','c','c','g','w','w','w','w','w','w','w','w','w'];
-  // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','c','c','c','g','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
-  // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
   // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
   // gameString3 = 10 x 10 grid
@@ -24,11 +22,8 @@ $(() => {
   let $beginningSquare = null;
   let level = null; //change according to difficulty
   const $score = $('#score');
-  const $timer = $('#timer');
-
 
   init();
-
 
   function init (){ //initiates all subsequent functions
     loadBoard();
@@ -45,8 +40,8 @@ $(() => {
           const $li1 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]} a"></li>`);
           $('#grid').append($li1);
         } else {
-          const $li3 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]}"></li>`);
-          $('#grid').append($li3);
+          const $li2 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]}"></li>`);
+          $('#grid').append($li2);
         }
       }
     }
@@ -193,8 +188,6 @@ $(() => {
         }
         e.preventDefault(); // prevent the default action
 
-        console.log(e.which);
-
         // SCORE
         function scoring(){
           const arrayLis = $('.g');
@@ -207,15 +200,12 @@ $(() => {
             }
           }
         }
-
       });
-
-
 
       //SCOREBOARD
       function countdown(){
         const $timer = $('#timer');
-        let timeleft = 60;
+        let timeleft = 30;
 
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
@@ -235,12 +225,8 @@ You Scored ${score} points!`);
       }
     }
 
-
-
-
     // RESET GAME
     function reset() {
-
       $resetButton.on('click', function(){
         location.reload();
 
