@@ -3,7 +3,6 @@
 }
 
 h1 {
-  text-align: center;
   margin: 50px 0 20px 0;
   font-size: 180px;
   color: white;
@@ -13,6 +12,7 @@ h1 {
 body {
   background: teal;
   font-family: 'VT323', monospace;
+  text-align: center;
 }
 
 .screen {
@@ -21,7 +21,10 @@ body {
   height: 1000px;
   margin: 0 auto;
   position: relative;
+  border-radius: 60px;
 }
+
+
 .glass{
   background: black;
   width: 1100px;
@@ -31,12 +34,23 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: pulse 60s infinite;
+ }
+
+ @keyframes pulse {
+   0% {
+     background-color: #000000;
+   }
+   100% {
+     background-color: #112CEE;
+   }
  }
 .bottom {
   background: grey;
   margin: 0 auto;
   width: 1500px;
-  height: 225px;
+  height: 240px;
+  position: relative;
 }
 
 #grid {
@@ -47,24 +61,36 @@ body {
 }
 
 .controls{
-  float:left;
+  float: left;
   background: orange;
-  width:500px;
-  height:98%;
+  width: 500px;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+
 }
 
 .livesboard{
-  float:left;
+  float: left;
   background: purple;
-  width:500px;
-  height:98%;
+  width: 500px;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .buttons{
-  float:left;
   background: green;
-  width:500px;
-  height:98%;
+  width: 500px;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 83.5%;
+  transform: translate(-50%, -50%);
 }
 
 .arrow{
@@ -75,7 +101,6 @@ body {
   line-height:120%;
   text-align: center;
 }
-
 
 
 h2 {
