@@ -1,7 +1,7 @@
 $(() => {
   const grid = ['b0','b1','b2','b3','b4','b5','b6','b7','b8','b9','b10','b11','b12','b13','b14','b15','b16','b17','b18','b19','b20','b21','b22','b23','b24','b25','b26','b27','b28','b29','b30','b31','b32','b33','b34','b35','b36','b37','b38','b39','b40','b41','b42','b43','b44','b45','b46','b47','b48','b49','b50','b51','b52','b53','b54','b55','b56','b57','b58','b59','b60','b61','b62','b63','b64','b65','b66','b67','b68','b69','b70','b71','b72','b73','b74','b75','b76','b77','b78','b79','b80','b81','b82','b83','b84','b85','b86','b87','b88','b89','b90','b91','b92','b93','b94','b95','b96','b97','b98','b99'];
   const rubySquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b50','b51','b52',];
-
+  const loseSquares1 = ['b18'];
   // gameString1 = 8 x 8 grid
   const gameString1 =
   ['w','w','w','w','w','w','w','w','w','s','c','c','c','c','c','w','w','c','c','c','w','w','c','w','w','c','w','c','c','c','c','w','w','c','c','c','c','w','c','w','w','c','w','c','w','w','c','w','w','c','c','c','c','c','g','w','w','w','w','w','w','w','w','w'];
@@ -29,6 +29,7 @@ $(() => {
 
   init();
 
+
   function init (){ //initiates all subsequent functions
     loadBoard();
     arrows();
@@ -41,11 +42,11 @@ $(() => {
     function loadBoard(){
       for (let i = 0; i < gameString1.length; i++) {
         if (rubySquares1.indexOf(grid[i]) !== -1) {
-          const $li1 = $(`<li id="${grid[i +1]}" class="${gameString1[i]} a"></li>`);
+          const $li1 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]} a"></li>`);
           $('#grid').append($li1);
         } else {
-          const $li2 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]}"></li>`);
-          $('#grid').append($li2);
+          const $li3 = $(`<li id="${grid[i + 1]}" class="${gameString1[i]}"></li>`);
+          $('#grid').append($li3);
         }
       }
     }
@@ -53,6 +54,7 @@ $(() => {
     //PLAY button
     function play(){
       $playButton.one('click', function() {
+        new Audio(`sounds/music.mp3`).play();
         $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
         $beginningSquare.append(digger);
         spawnRuby();
@@ -68,11 +70,11 @@ $(() => {
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       const $randomLocation = $clear[$randomSpawn];
       $($randomLocation).addClass('ruby').append(ruby);
+
     }
 
     //ARROW BINDING
     function arrows(){
-      // $('.arrow').bind('keydown', function(e) {
       $(document).keydown(function(e){
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code === 37) {
@@ -86,6 +88,12 @@ $(() => {
         }
         if(code === 40) {
           $('#b5down').css('background-color', 'blue');
+        }
+        if(code === 80) { //play 'p'
+          new Audio(`sounds/music.mp3`).pause();
+        }
+        if(code === 77) { //pause 'm'
+          new Audio(`sounds/music.mp3`).play();
         }
       });
       $(document).keyup(function(e){
@@ -129,8 +137,7 @@ $(() => {
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
             scoring();
-            // scoreboard();
-            // countdown();
+            scoreboard();
             break;
 
           case 38: // up
@@ -186,22 +193,6 @@ $(() => {
         }
         e.preventDefault(); // prevent the default action
 
-        // while (e.which === 37) {
-        //   $('#b4left').css('background-color', 'blue');
-        //   break;
-        // }
-        // while (e.which === 38) {
-        //   $('#b2up').css('background-color', 'blue');
-        //   break;
-        // }
-        // while (e.which === 39) {
-          // $('#b6up').css('background-color', 'blue');
-        //   break;
-        // }
-        // while (e.which === 40) {
-        //   $('#b5down').css('background-color', 'blue');
-        //   break;
-        // }
         console.log(e.which);
 
         // SCORE
@@ -211,6 +202,7 @@ $(() => {
             const classesOfLi = $(arrayLis[i]).attr('class');
             if (classesOfLi.includes('ruby')) {
               score+=10;
+              new Audio(`sounds/pickup.wav`).play();
               spawnRuby();
             }
           }
@@ -223,18 +215,19 @@ $(() => {
       //SCOREBOARD
       function countdown(){
         const $timer = $('#timer');
-        let timeleft = 30;
+        let timeleft = 60;
 
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
           if(timeleft <= 0)
             clearInterval(downloadTimer);
           $timer.text(timeleft);
-          console.log(score);
-          if (timeleft === 0) alert(
-            `GAME OVER
+          if (timeleft === 0) {
+            new Audio(`sounds/win_jingle.wav`).play();
+            alert(
+          `GAME OVER
 You Scored ${score} points!`);
-          // console.log(timeleft);
+          }
         },1000);
       }
       function scoreboard(){
