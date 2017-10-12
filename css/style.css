@@ -63,13 +63,12 @@ body {
 .controls{
   float: left;
   background: orange;
-  width: 500px;
+  width: 480px;
   height: 90%;
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(0%, -50%);
-
+  transform: translate(4%, -50%);
 }
 
 .livesboard{
@@ -85,12 +84,12 @@ body {
 
 .buttons{
   background: green;
-  width: 500px;
+  width: 480px;
   height: 90%;
   position: absolute;
   top: 50%;
   left: 83.5%;
-  transform: translate(-50%, -50%);
+  transform: translate(-52%, -50%);
 }
 
 .arrow{
@@ -119,7 +118,7 @@ li {
   margin: 1px;
   height: 98px;
   line-height: 40px;
-  background: red;
+  /*background: red;*/
   color: white;
   text-align: center;
   float: left;
@@ -172,7 +171,8 @@ li {
 }
 
 .c, .s, .a {
-  background-image: url("https://www.outworldz.com/yofrankie/textures/generic_dirt1_col.png");
+  /*background-image: url("https://www.outworldz.com/yofrankie/textures/generic_dirt1_col.png");*/
+  background-image: url(http://s7ondemand1.scene7.com/is/image/Polo/LWP65390W?$itemlevel$)
 }
 
 *.g {
