@@ -10,7 +10,8 @@ h1 {
 }
 
 body {
-  background: teal;
+  background: black;
+  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/galaxy.png);
   font-family: 'VT323', monospace;
   text-align: center;
 }
@@ -130,7 +131,8 @@ li {
 
 #b2up, #b4left, #b5down, #b6right{
   color: black;
-  border:5px solid black;
+  border:3px solid black;
+  border-radius: 150px;
 }
 
 #b2up{
@@ -192,7 +194,7 @@ li {
   position: absolute;
 }
 #digger, #block {
-  width: 110px;
+  width: 100px;
   display: block;
   vertical-align: middle;
   position: absolute;

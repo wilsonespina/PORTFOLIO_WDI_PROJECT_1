@@ -14,7 +14,7 @@ $(() => {
   const $li = $('.li');
   const $ul = $('.ul');
   const $goal = $('.g');
-  const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />');
+  const digger = $('<img id ="digger" src="images/diglett.png" alt="digger image" />');
   const block = $('<img id ="block" src="images/block.png" alt="block image" />');
   const ruby = $('<img id ="ruby" src="images/ruby.png" alt="ruby image" />');
   const $playButton = $('#play-button');
