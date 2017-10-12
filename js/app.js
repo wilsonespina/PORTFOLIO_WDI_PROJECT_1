@@ -3,8 +3,8 @@ $(() => {
   // gameString1 = 8 x 8 grid
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','g'];
-  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','w','c','c','g','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
-  // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
+  // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','c','c','c','g','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
+  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
 
   // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -90,7 +90,7 @@ $(() => {
             break;
 
           case 38: // up
-            if ($('#grid li:nth-child('+(n-gridWidth)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n-(2*gridWidth))+')').attr('class').includes('w') || $('#grid li:nth-child('+(n-8)+')').attr('class').includes('w')) {
+            if ($('#grid li:nth-child('+(n-gridWidth)+')').attr('class').includes('ruby') && $('#grid       li:nth-child('+(n-(2*gridWidth))+')').attr('class').includes('w') || $('#grid li:nth-child('+(n-gridWidth)+')').attr('class').includes('w')) {
               break;
             }
             (n -= gridWidth);
