@@ -77,6 +77,14 @@ button {
   background: green;
 }
 
-.spawnObject {
+.g {
+  background: black;
+}
+
+.sp {
   background: yellow;
+}
+
+.s {
+  background: pink;
 }
