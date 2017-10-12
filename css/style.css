@@ -3,57 +3,43 @@
 }
 
 h1 {
-  margin: 50px 0 20px 0;
-  font-size: 180px;
+  margin: 50px 0 0px 0;
+  font-size: 120px;
   color: white;
-  /*background: green;*/
 }
 
 body {
   background: black;
-  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/galaxy.png);
   font-family: 'VT323', monospace;
   text-align: center;
 }
 
 .screen {
-  /*background: radial-gradient(white, black, grey);;*/
-  background: grey;
+  background: black;
   width: 1200px;
-  height: 1000px;
+  height: 850px;
   margin: 0 auto;
   position: relative;
-  border-radius: 40px 40px 0 0;
 }
 
 
 .glass{
   background: black;
   width: 1100px;
-  height: 900px;
+  height: 800px;
   margin: 0 auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 60s infinite;
  }
 
- @keyframes pulse {
-   0% {
-     background-color: #000000;
-   }
-   100% {
-     background-color: #112CEE;
-   }
- }
 .bottom {
   background: grey;
   margin: 0 auto;
-  width: 1500px;
+  width: 1400px;
   height: 240px;
   position: relative;
-  border-radius: 10px;
 }
 
 #grid {
@@ -66,27 +52,28 @@ body {
 .controls{
   float: left;
   background: orange;
-  width: 480px;
+  width: 355px;
   height: 90%;
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(4%, -50%);
+  transform: translate(15%, -50%);
 }
 
 .livesboard{
   float: left;
-  background: purple;
+  /*background: purple;*/
   width: 500px;
   height: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-    display: table;
-    background: yellow;
-    font-size: 40px;
-    margin: auto;
+  display: table;
+  /*background: yellow;*/
+  font-size: 40px;
+  margin: auto;
+  color: white;
 }
 
 .lives {
@@ -102,7 +89,7 @@ body {
 }
 
 .buttons{
-  background: green;
+  /*background: green;*/
   width: 480px;
   height: 90%;
   position: absolute;
@@ -112,11 +99,11 @@ body {
 }
 
 .game-buttons{
-  background: red;
+  padding: 10px 0 0 0;
 }
 
 .levels{
-  background: pink;
+  /*background: pink;*/
 }
 
 .arrow{
@@ -155,8 +142,8 @@ li {
 
 #b2up, #b4left, #b5down, #b6right{
   color: black;
-  border:3px solid black;
-  border-radius: 150px;
+  border: 3px solid black;
+  border-radius: 12px;
 }
 
 #b2up{
@@ -188,7 +175,7 @@ li {
   text-align: center;
   font-size: 40px;
   clear: both;
-  background: pink;
+  /*background: pink;*/
 }
 
 .timer {
@@ -196,26 +183,28 @@ li {
 }
 
 #play-button, #reset-button {
-  /*font-size: 30px;
-  width: 150px;
+  font-size: 30px;
+  width: 200px;
   height: 100px;
-  margin: 0 5px;*/
-
+  margin: 0 5px;
   display: inline-block;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  background-color: #5163e8;
-  padding: 20px 70px;
-  font-size: 24px;
-  border: 1px solid #008cff;
-  background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0, rgb(73,132,180)),
-        color-stop(1, rgb(97,155,203))
-    );
+
+}
+
+.level-text{
+  font-size: 40px;
+}
+.levels {
+  margin: 35px 0 0 0;
+}
+
+#level1, #level2, #level3 {
+  vertical-align: middle;
+  width: 50px;
+  height: 35px;
 }
 
 #heart1, #heart2, #heart3 {
@@ -235,7 +224,6 @@ li {
 #digger, #block {
   width: 100px;
   display: block;
-  vertical-align: middle;
   position: absolute;
 }
 .w {
