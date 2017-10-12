@@ -12,6 +12,7 @@ $(() => {
   const gameString3 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
   const $li = $('.li');
   const $ul = $('.ul');
+  const $goal = $('.g');
   const digger = $('<img id ="digger" src="images/digger.png" alt="digger image" />');
   const block = $('<img id ="block" src="images/block.png" alt="block image" />');
   const ruby = $('<img id ="ruby" src="images/ruby.png" alt="ruby image" />');
@@ -21,7 +22,7 @@ $(() => {
   const startSquare = 51; //UPDATE with new game?
   let $beginningSquare = null;
   let level = null; //change according to difficulty
-  let score1 = 0;
+  let score = 0;
   let timer = 60;
   const $score = $('#score');
   const $timer = $('#timer');
@@ -32,6 +33,7 @@ $(() => {
   function init (){ //initiates all subsequent functions
     loadBoard();
     moveDigger();
+    // scoring();
     play();
     reset();
 
@@ -75,17 +77,17 @@ $(() => {
             }
             (n -= 1);
             //MOVE BLOCK
+            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
               $('#grid li:nth-child(' + (n-1) + ')').addClass('ruby').append(ruby);
-              // (score+=10);
             }
             //MOVE DIGGER
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
-            scoring();
+            // console.log($('#grid li:nth-child(' + (n-1) + ')'));
             scoreboard();
             break;
 
@@ -94,6 +96,7 @@ $(() => {
               break;
             }
             (n -= gridWidth);
+            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
@@ -102,7 +105,6 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
-            scoring();
             scoreboard();
             break;
 
@@ -111,6 +113,7 @@ $(() => {
               break;
             }
             (n += 1);
+            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('g'))) {
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -118,7 +121,6 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
-            scoring();
             scoreboard();
             break;
 
@@ -127,6 +129,7 @@ $(() => {
               break;
             }
             (n += gridWidth);
+            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
@@ -135,28 +138,31 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-gridWidth) + ')').addClass('c');
-            scoring();
             scoreboard();
             break;
           default: return; // exit this handler for other keys
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
+
+        // SCORE
+        function scoring(){
+          const arrayLis = $('.g');
+          for (var i = 0; i < arrayLis.length; i++) {
+            const classesOfLi = $(arrayLis[i]).attr('class');
+            if (classesOfLi.includes('ruby')) {
+              score+=10;
+              // classesOfLi.includes('ruby').removeClass('ruby');
+            }
+
+          }
+        }
+
       });
 
       //SCOREBOARD
       function scoreboard(){
         if (score >= 0) $score.html(score);
       }
-
-      //SCORE
-      // function scoring(){
-      //   if ($($'('.g').attr('class')').includes('ruby')) {
-      //     score+=10;
-      //   }
-      //
-      // }
-
-
     }
 
 
@@ -174,6 +180,9 @@ $(() => {
         // console.log(timeleft);
       },1000);
     }
+
+    // //GAMEOVER
+    // function gameover(){}
 
     // RESET GAME
     function reset() {
