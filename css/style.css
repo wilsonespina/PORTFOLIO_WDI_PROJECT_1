@@ -98,12 +98,66 @@ body {
   transform: translate(-52%, -50%);
 }
 
-.game-buttons{
-  padding: 10px 0 0 0;
+#play-button{
+  font-family: 'VT323', monospace;
+  background: #005800;
+	border-bottom: 5px inset rgba(0,0,0,.5);
+	border-left: 5px inset rgba(0,0,0,.5);
+	border-right: 5px inset rgba(255,255,255,.5);
+	border-top: 5px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+  font-size: 45px;
+	margin: 1rem;
+	max-width: 320px;
+	padding: .5rem;
+	text-shadow: 0px 0px 5px #000;
+	text-transform: uppercase;
+	width: 100%;
+
+	&:focus,
+	&:hover {
+		background: #BCBCBC;
+	}
+
+  background: #005800;
+
+	&:focus,
+	&:hover {
+		background: #006800;
+	}
 }
 
-.levels{
-  /*background: pink;*/
+#reset-button{
+  font-family: 'VT323', monospace;
+  background: #0d3971;
+	border-bottom: 5px inset rgba(0,0,0,.5);
+	border-left: 5px inset rgba(0,0,0,.5);
+	border-right: 5px inset rgba(255,255,255,.5);
+	border-top: 5px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+  font-size: 45px;
+	max-width: 320px;
+	padding: .5rem;
+	text-shadow: 0px 0px 5px #000;
+	text-transform: uppercase;
+	width: 100%;
+
+	&:focus,
+	&:hover {
+		background: #BCBCBC;
+	}
+  background: #0000BC;
+
+&:focus,
+&:hover {
+  background: #0000FC;
+}
 }
 
 .arrow{
@@ -182,23 +236,12 @@ li {
   clear: both;
 }
 
-#play-button, #reset-button {
-  font-size: 30px;
-  width: 200px;
-  height: 100px;
-  margin: 0 5px;
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-
-}
 
 .level-text{
   font-size: 40px;
 }
 .levels {
-  margin: 35px 0 0 0;
+  /*margin: 35px 0 0 0;*/
 }
 
 #level1, #level2, #level3 {
