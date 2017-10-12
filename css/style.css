@@ -4,7 +4,7 @@
 
 h1 {
   margin: 50px 0 23px 0;
-  font-size: 120px;
+  font-size: 160px;
   color: white;
   text-shadow: 10px 0px 10px rgb(53, 81, 252);
 }
@@ -294,5 +294,6 @@ li {
 
 .g {
   background-size: 100% 100%;
+  background-color: #565151;
   background-image: url(https://orig00.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png);
 }
