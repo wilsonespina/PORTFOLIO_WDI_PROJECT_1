@@ -4,7 +4,7 @@ $(() => {
   const gameString1 =
   // ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','g'];
   // ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','w','w','w','c','c','c','w','w','w','w','w','c','c','w','w','w','w','w','w','c','c','w','c','c','c','w','w','c','c','c','c','c','g','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
-  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','g','c','c','g','w','w','w','w','w','w','w','w','w'];
+  ['w','w','w','w','w','w','w','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','c','c','c','c','c','w','w','c','s','c','c','c','g','w','w','w','w','w','w','w','w','w'];
 
   // gameString2 = 9 x 9 grid
   const gameString2 = ['c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c','c'];
@@ -59,6 +59,8 @@ $(() => {
     //SPAWN RANDOM OBJECT
     function spawnRuby(){
       const $clear = $('.c');
+      const $scored = $('.ruby.g');
+      $scored.removeClass('ruby');
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       const $randomLocation = $clear[$randomSpawn];
       $($randomLocation).addClass('ruby').append(ruby);
@@ -77,7 +79,6 @@ $(() => {
             }
             (n -= 1);
             //MOVE BLOCK
-            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-1) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
@@ -87,7 +88,7 @@ $(() => {
             //MOVE DIGGER
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
-            // console.log($('#grid li:nth-child(' + (n-1) + ')'));
+            scoring();
             scoreboard();
             break;
 
@@ -96,7 +97,6 @@ $(() => {
               break;
             }
             (n -= gridWidth);
-            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n-(gridWidth)) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
@@ -105,6 +105,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n+gridWidth) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
 
@@ -113,7 +114,6 @@ $(() => {
               break;
             }
             (n += 1);
-            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+1) + ')').attr('class')).includes('g'))) {
               const $remove = $('#grid li:nth-child(' + n + ')');
               $($remove).removeClass('ruby c');
@@ -121,6 +121,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-1) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
 
@@ -129,7 +130,6 @@ $(() => {
               break;
             }
             (n += gridWidth);
-            scoring();
             if (($('#grid li:nth-child(' + n + ')').attr('class')).includes('ruby') && (($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('c') || ($('#grid li:nth-child(' + (n+(gridWidth)) + ')').attr('class')).includes('g'))) {
               $('#grid li:nth-child(' + n + ') img').remove();
               const $remove = $('#grid li:nth-child(' + n + ')');
@@ -138,6 +138,7 @@ $(() => {
             }
             $('#grid li:nth-child(' + n + ')').append(digger);
             $('#grid li:nth-child(' + (n-gridWidth) + ')').addClass('c');
+            scoring();
             scoreboard();
             break;
           default: return; // exit this handler for other keys
@@ -151,11 +152,13 @@ $(() => {
             const classesOfLi = $(arrayLis[i]).attr('class');
             if (classesOfLi.includes('ruby')) {
               score+=10;
+              spawnRuby();
               // classesOfLi.includes('ruby').removeClass('ruby');
             }
-
           }
         }
+
+
 
       });
 
