@@ -1,6 +1,6 @@
 $(() => {
   const grid = ['b0','b1','b2','b3','b4','b5','b6','b7','b8','b9','b10','b11','b12','b13','b14','b15','b16','b17','b18','b19','b20','b21','b22','b23','b24','b25','b26','b27','b28','b29','b30','b31','b32','b33','b34','b35','b36','b37','b38','b39','b40','b41','b42','b43','b44','b45','b46','b47','b48','b49','b50','b51','b52','b53','b54','b55','b56','b57','b58','b59','b60','b61','b62','b63','b64','b65','b66','b67','b68','b69','b70','b71','b72','b73','b74','b75','b76','b77','b78','b79','b80','b81','b82','b83','b84','b85','b86','b87','b88','b89','b90','b91','b92','b93','b94','b95','b96','b97','b98','b99'];
-  const rubySquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b46','b50','b51','b52','b53'];
+  const rubySquares1 = ['b18','b19','b22','b27','b28','b30','b29','b30','b34','b35','b38','b43','b50','b51','b52',];
 
   // gameString1 = 8 x 8 grid
   const gameString1 =
@@ -31,6 +31,7 @@ $(() => {
 
   function init (){ //initiates all subsequent functions
     loadBoard();
+    arrows();
     moveDigger();
     play();
     reset();
@@ -55,7 +56,7 @@ $(() => {
         $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
         $beginningSquare.append(digger);
         spawnRuby();
-        countdown();
+        // countdown();
       });
     }
 
@@ -67,6 +68,41 @@ $(() => {
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       const $randomLocation = $clear[$randomSpawn];
       $($randomLocation).addClass('ruby').append(ruby);
+    }
+
+    //ARROW BINDING
+    function arrows(){
+      // $('.arrow').bind('keydown', function(e) {
+      $(document).keydown(function(e){
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code === 37) {
+          $('#b4left').css('background-color', 'blue');
+        }
+        if(code === 38) {
+          $('#b2up').css('background-color', 'blue');
+        }
+        if(code === 39) {
+          $('#b6right').css('background-color', 'blue');
+        }
+        if(code === 40) {
+          $('#b5down').css('background-color', 'blue');
+        }
+      });
+      $(document).keyup(function(e){
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code === 37) {
+          $('#b4left').css('background-color', 'orange');
+        }
+        if(code === 38) {
+          $('#b2up').css('background-color', 'orange');
+        }
+        if(code === 39) {
+          $('#b6right').css('background-color', 'orange');
+        }
+        if(code === 40) {
+          $('#b5down').css('background-color', 'orange');
+        }
+      });
     }
 
     // MOVE DIGGER
@@ -149,6 +185,24 @@ $(() => {
           default: return;
         }
         e.preventDefault(); // prevent the default action
+
+        // while (e.which === 37) {
+        //   $('#b4left').css('background-color', 'blue');
+        //   break;
+        // }
+        // while (e.which === 38) {
+        //   $('#b2up').css('background-color', 'blue');
+        //   break;
+        // }
+        // while (e.which === 39) {
+          // $('#b6up').css('background-color', 'blue');
+        //   break;
+        // }
+        // while (e.which === 40) {
+        //   $('#b5down').css('background-color', 'blue');
+        //   break;
+        // }
+        console.log(e.which);
 
         // SCORE
         function scoring(){

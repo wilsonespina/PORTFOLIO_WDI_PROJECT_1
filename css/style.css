@@ -125,6 +125,7 @@ li {
   text-align: center;
   float: left;
   font-size: 30px;
+  background-image: url(http://s7ondemand1.scene7.com/is/image/Polo/LWP65390W?$itemlevel$);
 }
 
 #b2up, #b4left, #b5down, #b6right{
@@ -202,7 +203,6 @@ li {
 }
 
 .c, .s, .a {
-  /*background-image: url("https://www.outworldz.com/yofrankie/textures/generic_dirt1_col.png");*/
   background-image: url(http://s7ondemand1.scene7.com/is/image/Polo/LWP65390W?$itemlevel$)
 }
 
