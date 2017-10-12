@@ -13,14 +13,34 @@ body {
   background: teal;
 }
 
+.screen {
+  background: grey;
+  width: 1200px;
+  height: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bottom {
+  background: pink;
+}
+
+#grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 h2 {
   display: inline-block;
+  background: grey;
 }
 ul {
-  margin: 10px auto;
+  margin: 0 auto;
   width: 800px;
   height: 800px;
-  /*background: blue;*/
+  background: blue;
 }
 
 li {
