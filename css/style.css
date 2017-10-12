@@ -6,7 +6,7 @@ h1 {
   margin: 50px 0 20px 0;
   font-size: 180px;
   color: white;
-  background: green;
+  /*background: green;*/
 }
 
 body {
@@ -17,13 +17,13 @@ body {
 }
 
 .screen {
-  background: radial-gradient(white, black, grey);;
-  /*background: grey;*/
+  /*background: radial-gradient(white, black, grey);;*/
+  background: grey;
   width: 1200px;
   height: 1000px;
   margin: 0 auto;
   position: relative;
-  border-radius: 40px;
+  border-radius: 40px 40px 0 0;
 }
 
 
@@ -83,6 +83,22 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+    display: table;
+    background: yellow;
+    font-size: 40px;
+    margin: auto;
+}
+
+.lives {
+  padding: 20px 0 0 0;
+  display: -webkit-inline-box;
+}
+
+.livetext {
+  font-size: 55px;
+  clear: both;
+  padding: 10px 0;
+  font-weight: bold;
 }
 
 .buttons{
@@ -93,6 +109,14 @@ body {
   top: 50%;
   left: 83.5%;
   transform: translate(-52%, -50%);
+}
+
+.game-buttons{
+  background: red;
+}
+
+.levels{
+  background: pink;
 }
 
 .arrow{
@@ -107,7 +131,7 @@ body {
 
 
 h2 {
-  display: inline-block;
+  /*display: inline-block;*/
   background: grey;
 }
 ul {
@@ -159,12 +183,7 @@ li {
   background-size: 100%;
 }
 
-.livesboard {
-  display: table;
-  background: yellow;
-  font-size: 40px;
-  margin: auto;
-}
+
 .scoreboard {
   text-align: center;
   font-size: 40px;
@@ -172,11 +191,31 @@ li {
   background: pink;
 }
 
+.timer {
+  clear: both;
+}
+
 #play-button, #reset-button {
-  font-size: 30px;
+  /*font-size: 30px;
   width: 150px;
   height: 100px;
-  margin: 0 5px;
+  margin: 0 5px;*/
+
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #5163e8;
+  padding: 20px 70px;
+  font-size: 24px;
+  border: 1px solid #008cff;
+  background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(73,132,180)),
+        color-stop(1, rgb(97,155,203))
+    );
 }
 
 #heart1, #heart2, #heart3 {
