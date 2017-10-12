@@ -16,7 +16,7 @@ $(() => {
   const $goal = $('.g');
   const digger = $('<img id ="digger" src="images/diglett.png" alt="digger image" />');
   const block = $('<img id ="block" src="images/block.png" alt="block image" />');
-  const ruby = $('<img id ="ruby" src="images/ruby.png" alt="ruby image" />');
+  const ruby = $('<img id ="ruby" src="images/ball.png" alt="ruby image" />');
   const $playButton = $('#play-button');
   const $resetButton = $('#reset-button');
   const gridWidth = Math.sqrt(gameString1.length); //UPDATE WITH BIGGER GRID
@@ -223,7 +223,7 @@ $(() => {
       //SCOREBOARD
       function countdown(){
         const $timer = $('#timer');
-        let timeleft = 0;
+        let timeleft = 30;
 
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
