@@ -20,9 +20,21 @@ body {
   margin: 0 auto;
   position: relative;
 }
-
+.glass{
+  background: black;
+  width: 1100px;
+  height: 900px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
 .bottom {
-  background: pink;
+  background: grey;
+  margin: 0 auto;
+  width: 1500px;
+  height: 225px;
 }
 
 #grid {
@@ -31,6 +43,38 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.controls{
+  float:left;
+  background: orange;
+  width:500px;
+  height:98%;
+}
+
+.livesboard{
+  float:left;
+  background: purple;
+  width:500px;
+  height:98%;
+}
+
+.buttons{
+  float:left;
+  background: green;
+  width:500px;
+  height:98%;
+}
+
+.arrow{
+  float:left;
+  width:33.3%;
+  height:50%;
+  font-size: 90px;
+  line-height:120%;
+  text-align: center;
+}
+
+
 
 h2 {
   display: inline-block;
@@ -68,7 +112,7 @@ li {
   background: pink;
 }
 
-button {
+#play-button, #reset-button {
   font-size: 30px;
   width: 150px;
   height: 100px;
