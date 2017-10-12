@@ -154,28 +154,27 @@ li {
 .heart {
   display: inline-block;
 }
-#digger, #block, #ruby {
+ #ruby{
   width: 100px;
+  display: block;
+  vertical-align: middle;
+  position: absolute;
 }
-
+#digger, #block {
+  width: 110px;
+  display: block;
+  vertical-align: middle;
+  position: absolute;
+}
 .w {
-  background: red;
   background-image: url("https://i.pinimg.com/236x/a8/60/9c/a8609cbcd9263f98bba3d6699f0277f2--mario-blocks-mario-bedroom.jpg");
   background-size: 50% 50%;
 }
 
-.c {
-  background: green;
+.c, .s, .a {
+  background-image: url("https://www.outworldz.com/yofrankie/textures/generic_dirt1_col.png");
 }
 
-.g {
+*.g {
   background: black;
-}
-
-.a {
-  background: green;
-}
-
-.s {
-  background: pink;
 }
