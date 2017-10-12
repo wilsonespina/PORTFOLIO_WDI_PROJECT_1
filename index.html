@@ -9,29 +9,50 @@
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
-  <h1>Can you dig it?</h1>
-  
-  <ul id="grid">
-  </ul>
+  <header>
+    <h1>Can you dig it?</h1>
+  </header>
 
-
-  <div class="livesboard">
-    <h2 class="lives">Lives: </h2><span class="lives-span">
-      <div class="heart"><img src="images/heart.png" alt="heart" id="heart1">
-      </div>
-      <div class="heart"><img src="images/heart.png" alt="heart" id="heart2">
-      </div>
-      <div class="heart"><img src="images/heart.png" alt="heart" id="heart3">
-      </div>
-    </span>
-      <button type="button" name="play" id="play-button">PLAY</button>
-      <button type="button" name="reset" id="reset-button">RESET</button>
+  <main>
+  <div class="screen">
+    <ul id="grid"></ul>
   </div>
 
-  <br>
-  <div class="scoreboard">Score: <span id="score">0</span>
-    <div class="timer">Timer: <span id="timer">00:00</span>
+  <div class="bottom">
+    <div class="controls">
+      <div class="b1"></div>
+      <div class="b2up"></div>
+      <div class="b3"></div>
+      <div class="b4left"></div>
+      <div class="b5down"></div>
+      <div class="b6"></div>
     </div>
 
+    <div class="livesboard">
+      <h2 class="lives">Lives: </h2><span class="lives-span">
+        <div class="heart"><img src="images/heart.png" alt="heart" id="heart1">
+        </div>
+        <div class="heart"><img src="images/heart.png" alt="heart" id="heart2">
+        </div>
+        <div class="heart"><img src="images/heart.png" alt="heart" id="heart3">
+        </div>
+        <div class="scoreboard">Score: <span id="score">0</span></div>
+        <div class="timer">Timer: <span id="timer">00:00</span></div>
+      </span>
+    </div>
+
+    <div class="buttons">
+      <button type="button" name="play" id="play-button">PLAY</button>
+      <button type="button" name="reset" id="reset-button">RESET</button>
+      <div class="levels">
+        <button type="button" name="level1">1</button>
+        <button type="button" name="level2">2</button>
+        <button type="button" name="level3">3</button>
+      </div>
+    </div>
+  </div>
+
+
+  </main>
   </body>
   </html>

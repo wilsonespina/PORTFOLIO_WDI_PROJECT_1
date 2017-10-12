@@ -10,7 +10,7 @@ h1 {
 }
 
 body {
-  background: blue;
+  background: teal;
 }
 
 h2 {
@@ -81,8 +81,8 @@ button {
   background: black;
 }
 
-.sp {
-  background: yellow;
+.a {
+  background: green;
 }
 
 .s {
