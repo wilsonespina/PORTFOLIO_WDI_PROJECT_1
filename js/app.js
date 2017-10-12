@@ -169,7 +169,7 @@ $(() => {
       //SCOREBOARD
       function countdown(){
         const $timer = $('#timer');
-        let timeleft = 30;
+        let timeleft = 0;
 
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
@@ -193,12 +193,10 @@ You Scored ${score} points!`);
 
     // RESET GAME
     function reset() {
-      // const score = 0;
-      // const timer = 60;
+
       $resetButton.on('click', function(){
         location.reload();
-        // $score.html(score);
-        // $timer.html(timer);
+
       });
     }
   }
