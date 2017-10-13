@@ -206,7 +206,6 @@ $(() => {
       function countdown(){
         const $timer = $('#timer');
         let timeleft = 30;
-
         const downloadTimer = setInterval(function(){
           $timer.value = 60 - --timeleft;
           if(timeleft <= 0)
