@@ -11,3 +11,18 @@ The first project brief in our WDI course was to create a
 ## Game
 
 ![](https://i.imgur.com/AE4mq0d.png?1)
+
+
+## Coding Highlights - what went well
+
+## Features to be added
+
+## Programming Language Library
+The following languages were used in my JavaScript game:
+* HTML5
+* CSS
+* Javascript jQuery
+* 
+
+
+
