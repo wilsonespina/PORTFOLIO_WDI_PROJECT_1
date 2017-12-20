@@ -204,7 +204,7 @@ li {
   text-align: center;
   float: left;
   font-size: 30px;
-  background-image: url(http://s7ondemand1.scene7.com/is/image/Polo/LWP65390W?$itemlevel$);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/tile-background.jpeg');
 }
 
 #b2up, #b4left, #b5down, #b6right{
@@ -215,25 +215,25 @@ li {
 }
 
 #b2up{
-  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/up_arrow.png);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/up_arrow.png');
   background-position: center;
   background-size: 110%;
 }
 
 #b4left{
-  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/left_arrow.png);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/left_arrow.png');
   background-position: center;
   background-size: 100%;
 }
 
 #b5down{
-  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/down_arrow.png);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/down_arrow.png');
   background-position: center;
   background-size: 110%;
 }
 
 #b6right{
-  background-image: url(/Users/Wilson/Development/WDI_PROJECT_1/images/right_arrow.png);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/right_arrow.png');
   background-position: center;
   background-size: 100%;
 }
@@ -285,16 +285,16 @@ li {
   position: absolute;
 }
 .w {
-  background-image: url("https://i.pinimg.com/236x/a8/60/9c/a8609cbcd9263f98bba3d6699f0277f2--mario-blocks-mario-bedroom.jpg");
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/block.png');
   background-size: 50% 50%;
 }
 
 .c, .s, .a {
-  background-image: url(http://s7ondemand1.scene7.com/is/image/Polo/LWP65390W?$itemlevel$);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/tile-background.jpeg');
 }
 
 .g {
   background-size: 100% 100%;
   background-color: #565151;
-  background-image: url(https://orig00.deviantart.net/06cf/f/2016/191/e/8/ash_ketchum_render_by_tzblacktd-da9k0wb.png);
+  background-image: url('https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/ash.png');
 }
