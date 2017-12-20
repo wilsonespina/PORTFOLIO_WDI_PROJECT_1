@@ -93,16 +93,16 @@ $(() => {
       $(document).keyup(function(e){
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code === 37) {
-          $('#b4left').css('background-color', 'orange');
+          $('#b4left').css('background-color', 'white');
         }
         if(code === 38) {
-          $('#b2up').css('background-color', 'orange');
+          $('#b2up').css('background-color', 'white');
         }
         if(code === 39) {
-          $('#b6right').css('background-color', 'orange');
+          $('#b6right').css('background-color', 'white');
         }
         if(code === 40) {
-          $('#b5down').css('background-color', 'orange');
+          $('#b5down').css('background-color', 'white');
         }
       });
     }
