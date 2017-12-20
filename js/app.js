@@ -11,9 +11,9 @@ $(() => {
   const $li = $('.li');
   const $ul = $('.ul');
   const $goal = $('.g');
-  const digger = $('<img id ="digger" src="https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/digger.png" alt="digger image" />');
+  const digger = $('<img id ="digger" src="https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/diglett.png" alt="digger image" />');
   const block = $('<img id ="block" src="https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/block.png" alt="block image" />');
-  const ruby = $('<img id ="ruby" src="https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/ruby.png" alt="ruby image" />');
+  const ruby = $('<img id ="ruby" src="https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-1/ball.png" alt="ruby image" />');
   const $playButton = $('#play-button');
   const $resetButton = $('#reset-button');
   const gridWidth = Math.sqrt(gameString1.length); //UPDATE WITH BIGGER GRID
