@@ -61,7 +61,7 @@ By loading in the game board in this way, it means that fewer lines of code are 
 
 ### Responsive game controller
 
-When playing the game, the game controller at the bottom of the page reflects the user's key presses by turning either blue or orange, according to the 'key up' or 'key down' action.
+When playing the game, the game controller at the bottom of the page reflects the user's key presses by turning either blue or orange, according to the 'key up' or 'key down' action. This is handled by key bindings where the event or 'e' is passed in as an arguement in the function below for the keydown press. Here, an event listener is looking for the keyCode of the arrow keys and using jQuery, specific `div`s are being found and their colour are being changed to blue.
 
 ```js
 function arrows(){
@@ -85,9 +85,9 @@ function arrows(){
 
 ### Moving the character and block logic
 
-The
+When navigating around the game board, the character seems to move from one square to the next after each keystroke. What's actually happening is different classes are being assigned to adjacent tiles and being removed from the starting tile after each keystroke. When certain classes are added, the `css` changes the styling and different backround images are rendered. This gives the impression that the character has moved from one block to the next.
 
-Adding and removing classes accoording to the input
+To give the impression that the walls are solid and the player cannot pass through them, collision logic was needed. The code below uses `if` statements and boolean logic within a `switch case` block to determine how the player moves around the board. Here, the `class` attributes are being looked at and they are either being removed or added according to the logic. When moving, the 'n' number (or curent position) is being altered if all statements are satisfied.
 
 ```js
 $(document).keydown(function(e) {
@@ -114,14 +114,18 @@ $(document).keydown(function(e) {
 ```
 
 ### Lessons Learned
-After my first 
+After my first JavaScript project, there were many lessons that I could take away from the experience, including:
+
+1. 
 
 
 ## FEATURES BACKLOG
 
-Having only spent a week on on this first project, there were a number of features I would have liked have added. Given more time, I'll owkron the following:
+Having only spent a week on on this first project, there were a number of features I would have liked have added. Given more time, I'll work on the following:
 
 1. Adding additional levels to the game so you can increase the difficulty after each successive level.
+2. Adding a continuous highscore so you can see efforts from other people not just your own.
+3. If a player moves the object to a position where it's imposible to move, the game would deduct points and you would reset in a new position.
 
 
 
