@@ -40,7 +40,7 @@ Each letter represents the following type of `<li>`:
 * `c` - clear areas
 * `g` - goal area
 
-The function below iterates through a `for` loop and loads in a different `<li>` with specfic attributes according to what's in the gameString array:
+The function below iterates through a `for` loop and loads in a different `<li>` with specific attributes according to what's in the gameString array:
 
 ```js
   function loadBoard(){
@@ -61,7 +61,7 @@ By loading in the game board in this way, it means that fewer lines of code are 
 
 ### Responsive game controller
 
-When playing the game, the game controller at the bottom of the page reflects the user's key presses by turning either blue or orange, according to the 'key up' or 'key down' action. This is handled by key bindings where the event or 'e' is passed in as an arguement in the function below for the keydown press. Here, an event listener is looking for the keyCode of the arrow keys and using jQuery, specific `div`s are being found and their colour are being changed to blue.
+When playing the game, the game controller at the bottom of the page reflects the user's key presses by turning either blue or orange, according to the 'key up' or 'key down' action. This is handled by key bindings where the event or 'e' is passed in as an argument in the function below for the keydown press. Here, an event listener is looking for the keyCode of the arrow keys and, via jQuery, specific `div`s are being found and are being change to blue.
 
 ```js
 function arrows(){
@@ -85,9 +85,9 @@ function arrows(){
 
 ### Moving the character and block logic
 
-When navigating around the game board, the character seems to move from one square to the next after each keystroke. What's actually happening is different classes are being assigned to adjacent tiles and being removed from the starting tile after each keystroke. When certain classes are added, the `css` changes the styling and different backround images are rendered. This gives the impression that the character has moved from one block to the next.
+When navigating around the game board, the character seems to move from one square to the next after each keystroke. What's actually happening is different classes are being assigned to adjacent tiles and being removed from the starting tile after each keystroke. When certain classes are added, the `css` changes the styling and different background images are rendered. This gives the impression that the character has moved from one block to the next.
 
-To give the impression that the walls are solid and the player cannot pass through them, collision logic was needed. The code below uses `if` statements and boolean logic within a `switch case` block to determine how the player moves around the board. Here, the `class` attributes are being looked at and they are either being removed or added according to the logic. When moving, the 'n' number (or curent position) is being altered if all statements are satisfied.
+To give the impression that the walls are solid and the player cannot pass through them, collision logic was needed. The code below uses `if` statements and boolean logic within a `switch case` block to determine how the player moves around the board. Here, the `class` attributes are being looked at and they are either being removed or added according to the logic. When moving, the 'n' number (or current position) is being altered if all statements are satisfied.
 
 ```js
 $(document).keydown(function(e) {
@@ -106,26 +106,26 @@ $(document).keydown(function(e) {
             }
             //MOVE DIGGER
             $('#grid li:nth-child(' + n + ')').append(digger);
-            $('#grid li:nth-child(' + (n+1) + ')').addClass('c');
-            scoring();
-            scoreboard();
-            break;       
+            $('#grid li:nth-child(' + (n+1) + ')').addClass('c');    
 			...
 ```
 
 ### Lessons Learned
 After my first JavaScript project, there were many lessons that I could take away from the experience, including:
 
-1. 
-
+1. It's important to plan out and wireframe your design before starting to write any CSS. I found that I rushed into the project without having a full understanding of how I wanted it be laid out. The idea to give it a retro theme came quite last minute and that helped guide the rest of the styling process.
+2. Going through this process for the first time, I gained an appreciation for the concept of having a minimum viable product (MVP). Through understanding what was the minimum level needed to achieve, it was easier to 'draw a line' before working on additional nice-to-have features. Although this meant having to park some features for a later date, it meant that I had a viable product to submit.
+3. Having had to use several online tools to research JavaScript methods, it was an eye opener in seeing what was actually possible with the language. Prior to making the game, I was unaware of methods such as `.append` and `.includes` however I feel more confident in being able to search for new methods online through Google and [stackoverflow.com 
+](https://stackoverflow.com/)
 
 ## FEATURES BACKLOG
 
-Having only spent a week on on this first project, there were a number of features I would have liked have added. Given more time, I'll work on the following:
+Having only spent a week on this first project, there were a number of features I would have liked have added. Given more time, I'll work on the following:
 
 1. Adding additional levels to the game so you can increase the difficulty after each successive level.
-2. Adding a continuous highscore so you can see efforts from other people not just your own.
-3. If a player moves the object to a position where it's imposible to move, the game would deduct points and you would reset in a new position.
+2. Adding a rolling high-score so you can see efforts from other people not just your own.
+3. If a player moves the object to a position where it's impossible to move, the game would deduct points and you would reset in a new position.
+4. Adding the ability to stop the music by binding it to a keypress.
 
 
 
