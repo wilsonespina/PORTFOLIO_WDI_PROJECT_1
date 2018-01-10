@@ -231,5 +231,5 @@ You Scored ${score} points!`);
       });
     }
   }
-});
 const nr = require('newrelic');
+});
