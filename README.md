@@ -14,3 +14,4 @@ My first project at GA was to build an interactive game using JavaScript and jQu
 * CSS3
 * jQuery
 * JavaScript
+* PHP
