@@ -24,11 +24,12 @@ $(() => {
 
   init();
 
-  function init (){ //initiates all subsequent functions
+  function init(){ //initiates all subsequent functions
     loadBoard();
+    play();
+
     arrows();
     moveDigger();
-    play();
     reset();
 
 
@@ -48,12 +49,20 @@ $(() => {
     //PLAY button
     function play(){
       $playButton.one('click', function() {
-        new Audio(`sounds/music.mp3`).play();
-        $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
-        $beginningSquare.append(digger);
-        spawnRuby();
-        // countdown();
+        new Audio('../sounds/music.mp3').play();
+        start();
       });
+    }
+
+
+    //Start game
+    function start(time){
+      time = 0;
+      $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
+      $beginningSquare.append(digger);
+      spawnRuby();
+
+
     }
 
     //SPAWN RANDOM OBJECT
@@ -218,6 +227,8 @@ You Scored ${score} points!`);
           }
         },1000);
       }
+
+
       function scoreboard(){
         if (score >= 0) $score.html(score);
       }
