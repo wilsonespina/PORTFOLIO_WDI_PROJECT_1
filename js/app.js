@@ -49,20 +49,35 @@ $(() => {
     //PLAY button
     function play(){
       $playButton.one('click', function() {
-        new Audio('../sounds/music.mp3').play();
+        new Audio('sounds/music.mp3').play();
         start();
       });
     }
 
 
     //Start game
-    function start(time){
-      time = 0;
+    function start(){
       $beginningSquare = $('#grid li:nth-child(' + startSquare + ')');
       $beginningSquare.append(digger);
       spawnRuby();
+      countdown();
+    }
 
-
+    function countdown(score){
+      const $timer = $('#timer');
+      let timeleft = 30;
+      const downloadTimer = setInterval(function(){
+        $timer.value = 60 - --timeleft;
+        if(timeleft <= 0)
+          clearInterval(downloadTimer);
+        $timer.text(timeleft);
+        if (timeleft === 0) {
+          new Audio('sounds/win_jingle.wav').play();
+          alert(
+            `GAME OVER
+You scored ${score} points`);
+        }
+      },1000);
     }
 
     //SPAWN RANDOM OBJECT
@@ -73,7 +88,6 @@ $(() => {
       const $randomSpawn = Math.floor(Math.random() * ($($clear).length));
       const $randomLocation = $clear[$randomSpawn];
       $($randomLocation).addClass('ruby').append(ruby);
-
     }
 
     //ARROW BINDING
@@ -93,10 +107,10 @@ $(() => {
           $('#b5down').css('background-color', 'blue');
         }
         if(code === 80) { //play 'p'
-          new Audio(`sounds/music.mp3`).pause();
+          new Audio('sounds/music.mp3').pause();
         }
         if(code === 77) { //pause 'm'
-          new Audio(`sounds/music.mp3`).play();
+          new Audio('sounds/music.mp3').play();
         }
       });
       $(document).keyup(function(e){
@@ -120,8 +134,6 @@ $(() => {
     function moveDigger(){
       let n = startSquare;
       let score = 0;
-      countdown();
-
       $(document).keydown(function(e) {
         switch(e.which) {
           case 37: // left
@@ -203,30 +215,12 @@ $(() => {
             const classesOfLi = $(arrayLis[i]).attr('class');
             if (classesOfLi.includes('ruby')) {
               score+=10;
-              new Audio(`sounds/pickup.wav`).play();
+              new Audio('sounds/pickup.wav').play();
               spawnRuby();
             }
           }
         }
       });
-
-      //SCOREBOARD
-      function countdown(){
-        const $timer = $('#timer');
-        let timeleft = 30;
-        const downloadTimer = setInterval(function(){
-          $timer.value = 60 - --timeleft;
-          if(timeleft <= 0)
-            clearInterval(downloadTimer);
-          $timer.text(timeleft);
-          if (timeleft === 0) {
-            new Audio(`sounds/win_jingle.wav`).play();
-            alert(
-          `GAME OVER
-You Scored ${score} points!`);
-          }
-        },1000);
-      }
 
 
       function scoreboard(){
@@ -242,5 +236,4 @@ You Scored ${score} points!`);
       });
     }
   }
-const nr = require('newrelic');
 });
