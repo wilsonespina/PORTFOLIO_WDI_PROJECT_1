@@ -15,3 +15,8 @@ My first project at GA was to build an interactive game using JavaScript and jQu
 * jQuery
 * JavaScript
 * PHP
+
+## Deployment:
+
+* AWS S3 Bucket
+* Github Actions
